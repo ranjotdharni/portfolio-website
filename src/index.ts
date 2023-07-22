@@ -1,11 +1,11 @@
 import express, { Express, Request, Response } from "express";
+import router from "./router.js";
 const port = 8080;
 
 const app: Express = express();
 
-app.get("/", (req: Request, res: Response) => {
-    res.send("Hello World!");
-});
+app.use(express.static('./pages/public'));
+app.use('/', router);
 
 app.listen((process.env.port || port), () => {
     console.log("App listening on port " + (process.env.port || port));
