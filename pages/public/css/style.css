@@ -1,4 +1,207 @@
-h1 
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@300&family=REM:wght@300&display=swap');
+@import "anim.css";
+
+body 
 {
-    color: blue;
+    margin: 0;
+    background-color: #1a0e1c;
+    /*width: 100vw;
+    height: 100vh;
+    font-family: 'Barlow', sans-serif;
+    background: #14201c;/*linear-gradient(245deg, #4d9559 0%, #38703d 30%, #133917 75%);*/
+}
+
+#action canvas
+{
+    width: 100vw !important;
+    height: 100vh !important;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+#main
+{
+    width: 80%;
+    height: 80%;
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    border-radius: 1vw;
+    background: linear-gradient(75deg, #1D2E28 0%, #18392B 20%, #1D2E28 40%, #14452F 60%, #1d2e28 80%);
+}
+
+#main_text
+{
+    width: 25%;
+    height: 33%;
+    position: absolute;
+    top: 33.5%;
+    left: 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+#main_text div
+{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    min-height: 10%;
+    border-radius: 2vw;
+    padding-left: 2%;
+    background: rgba(0, 0, 0, 0);
+    animation-name: reveal;
+}
+
+#main_div1
+{
+    --color: aliceblue;
+    animation-duration: 1.25s;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in;
+    animation-delay: 0.5s;
+}
+
+#main_div2
+{
+    --color: #101614;
+    animation-duration: 2s;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in-out;
+    animation-delay: 0.75s;
+}
+
+#main_div3
+{
+    --color: aliceblue;
+    animation-duration: 2.5s;
+    animation-iteration-count: 1;
+    animation-timing-function: linear;
+    animation-delay: 1.75s;
+}
+
+#main_div4
+{
+    --color: aliceblue;
+    animation-duration: 2s;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in;
+    animation-delay: 2.5s;
+}
+
+#main_div5
+{
+    --color: aliceblue;
+    animation-duration: 1.5s;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in;
+    animation-delay: 3.5s;
+}
+
+.main_text
+{
+    color: aliceblue;
+    padding: 0;
+    margin: 0;
+    opacity: 0;
+    animation: fade_in 50ms linear forwards;
+}
+
+#main1
+{
+    font-size: 1vw;
+    animation-delay: 1.125s;
+}
+
+#main2
+{
+    font-size: 2vw;
+    color: var(--color);
+    font-family: 'REM', sans-serif;
+    text-decoration: underline;
+    animation-delay: 1.75s;
+}
+
+#main3
+{
+    font-size: 1.25vw;
+    animation-delay: 3s;
+}
+
+#main4
+{
+    font-size: 1.25vw;
+    animation-delay: 3.5s;
+}
+
+#main5
+{
+    font-size: 1.25vw;
+    animation-delay: 4.25s;
+}
+
+#bio
+{
+    width: 25%;
+    height: 80%;
+    position: absolute;
+    top: 10%;
+    left: 70%;
+    background: #14201c;
+    border-radius: 1vw;
+    opacity: 0;
+    box-shadow: -10px -6px 20px rgb(13, 13, 13);
+
+    animation: slide_bio 250ms linear forwards;
+}
+
+#bio img
+{
+    width: 50%;
+    height: 30%;
+    position: absolute;
+    left: 25%;
+    top: 10%;
+    border-radius: 50%;
+}
+
+#bio p
+{
+    font-size: 1.7vw;
+    position: absolute;
+    text-decoration: underline;
+    color: aliceblue;
+    top: 40%;
+    left: 31%;
+}
+
+#bio ul
+{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+    height: 40%;
+    position: absolute;
+    top: 52.5%;
+    left: 5%;
+}
+
+#bio ul li
+{
+    background-color: #245842;
+    color: aliceblue;
+    margin-top: 5%;
+    font-size: 1vw;
+    border-radius: 1vw;
+    padding-inline: 5%;
 }
