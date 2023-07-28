@@ -1,6 +1,18 @@
+@keyframes scroll_wheel
+{
+    0% {top: 5%}
+    100% {top: 75%}
+}
+
 @keyframes fade_in
 {
     100% {opacity: 1;}
+}
+
+@keyframes slide_scroll
+{
+    0% {opacity: 0; top: 32vh;}
+    100% {opacity: 1; top: 30vh;}
 }
 
 @keyframes slide_bio
