@@ -6,6 +6,39 @@ export class Timer {
         return ((new Date()).valueOf() - this.start.valueOf()) / 1000;
     }
 }
+export class Director {
+    constructor(camera) {
+        this.camera = camera;
+        this.boundingBox = document.querySelector('#action');
+        this.distanceMultiplier = 0.2;
+        this.posY = window.scrollY / 100;
+        this.scroll = window.scrollY / 100;
+        /*this.scene = 0;
+        this.transition = true;
+
+        this.stops = new Map([
+            [0, {y: 0}],
+            [1, {y: 5}]
+        ]);
+
+        this.nextStop = this.stops.get(1);*/
+        this.camera.position.set(0, this.posY, 5);
+    }
+    scrollReady() {
+        return (window.scrollY / 100) != this.posY;
+    }
+    handleScroll() {
+        let scroll = window.scrollY / 100;
+        if (scroll > this.posY) {
+            this.posY = Math.min((scroll - this.posY) * this.distanceMultiplier, scroll);
+        }
+        if (scroll < this.posY) {
+            this.posY = Math.max((scroll - this.posY) * this.distanceMultiplier, scroll);
+        }
+        this.camera.position.y = -this.posY;
+        this.boundingBox.style.top = (window.scrollY / (window.innerHeight * 0.01)) + '%';
+    }
+}
 export function toObjString(str) {
     return `/gltf/${str}/scene.gltf`;
 }

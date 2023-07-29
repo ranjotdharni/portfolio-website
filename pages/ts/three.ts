@@ -14,9 +14,10 @@ const rayCaster = new THREE.Raycaster();
 const clicked = new Map([
     ["pc", false]
 ]);
+const director = new Functions.Director(camera);
 let controls;
 
-camera.position.set(0, 0, 5);
+//camera.position.set(0, 0, 5);
 renderer.setSize(window.innerWidth, window.innerHeight);
 renderer.shadowMap.enabled = true;
 document.getElementById("action").appendChild(renderer.domElement);
@@ -160,6 +161,12 @@ function animate()
 {
     requestAnimationFrame(animate);
     animations();
+    
+    if (director.scrollReady())
+    {
+        director.handleScroll();
+    }
+
     renderer.render(scene, camera);
 }
 
