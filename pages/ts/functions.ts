@@ -23,7 +23,7 @@ export class Director {
     constructor(camera: THREE.PerspectiveCamera) {
         this.camera = camera;
         this.boundingBox = document.querySelector('#action');
-        this.distanceMultiplier = 0.2;
+        this.distanceMultiplier = 1.2;
         this.posY = window.scrollY / 100;
         this.scroll = window.scrollY / 100;
         /*this.scene = 0;
@@ -49,12 +49,12 @@ export class Director {
         let scroll: number = window.scrollY / 100;
         if (scroll > this.posY)
         {
-            this.posY = Math.min((scroll - this.posY) * this.distanceMultiplier, scroll);
+            this.posY = Math.min((scroll - this.posY) * 0.25, scroll) * this.distanceMultiplier;
         }
 
         if (scroll < this.posY)
         {
-            this.posY = Math.max((scroll - this.posY) * this.distanceMultiplier, scroll);
+            this.posY = Math.max((scroll - this.posY) * 0.25, scroll) * this.distanceMultiplier;
         }
 
         this.camera.position.y = -this.posY;
@@ -64,7 +64,7 @@ export class Director {
 
 export function toObjString(str: string): string
 {
-    return `/gltf/${str}/scene.gltf`;
+    return (str.slice(0, 2) == 'o_' ? `/gltf/${str}/scene.glb` : `/gltf/${str}/scene.gltf`);
 }
 
 export function getWavesVertexShader(): string
