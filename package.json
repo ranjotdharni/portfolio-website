@@ -5,10 +5,11 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "cd src && tsc && cd app && tsc && vite build",
+    "test": "npm run build && npm run start",
+    "build": "npm install && cd src && tsc && cd app && npm install && tsc && vite build",
+    "devBuild": "cd src && tsc && cd app && tsc && vite build",
     "start": "node dist/index.js",
-    "dev": "npm run build && nodemon dist/index.js"
+    "dev": "npm run devBuild && nodemon dist/index.js"
   },
   "repository": {
     "type": "git",

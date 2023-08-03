@@ -274,7 +274,7 @@ function isOrbiting(): boolean
         orbitalView = -1;
     }
 
-    return (subject > 9 ? false : true); 
+    return !(subject > 9); 
 }
 
 function orbitalsAligned(): boolean

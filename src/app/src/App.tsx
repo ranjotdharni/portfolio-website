@@ -1,11 +1,11 @@
-import './App.css'
+import Intro from './components/Intro.js';
+import Tech from './components/Tech.js';
 
 function App() {
   return (
     <>
-      <div>
-        Bird is the Word.
-      </div>
+      <Intro></Intro>
+      <Tech></Tech>
     </>
   )
 }
