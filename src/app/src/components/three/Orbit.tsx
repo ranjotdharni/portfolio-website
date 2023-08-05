@@ -1,23 +1,66 @@
 import { Canvas, useFrame, useLoader } from "@react-three/fiber";
-import { Suspense, useRef, useState } from "react";
+import { Stars } from "@react-three/drei";
+import { Suspense, useRef } from "react";
 import Orbital from "./Orbital";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 
+function zoomAt(zoom: {x: number, y: number, z: number}, point: {x: number, y: number, z: number}): boolean {
+    if ((zoom.x != point.x) || (zoom.y != point.y) || (zoom.z != point.z))
+    {
+        return false;
+    }
 
-function Orbit({isOrbiting} : {isOrbiting: boolean}) {
+    return true;
+}
+
+
+function Orbit({o_center, zoomPos, isOrbiting} : {o_center: {x: number, y: number, z: number}, zoomPos: {x: number, y: number, z: number}, isOrbiting: boolean}) {
     const center = useLoader(GLTFLoader ,'/gltf/o_center/scene.glb');
     var centerScale = 0.0015;
-    const orbitCenter = {x: 5, y: 0, z: -8};
+    var zoomSpeed = 0.1;
     const ref = useRef<any>();
+    const sunRef = useRef<any>();
+    const sysRot = {x: Math.PI / 5, y: Math.PI / 12, z: Math.PI / -8}
+    //const sysRot = {x: Math.PI / 5, y: Math.PI / -24, z: Math.PI / 12}
 
     useFrame(() => {
-        ref.current.rotation.y += Math.PI / 480;
+        sunRef.current.rotation.y += (isOrbiting ? Math.PI / 480  : 0.001);//Math.PI / 480;
+
+        let orbit = ref.current;
+
+        if (!zoomAt(zoomPos, orbit.position))
+        {
+            orbit.position.x = (zoomPos.x - orbit.position.x > 0 ? Math.min(zoomPos.x, orbit.position.x + (Math.abs(zoomPos.x - orbit.position.x) * zoomSpeed + 0.001)) : 
+                                Math.max(zoomPos.x, orbit.position.x - (Math.abs(zoomPos.x - orbit.position.x) * zoomSpeed + 0.001))); 
+            orbit.position.y = (zoomPos.y - orbit.position.y > 0 ? Math.min(zoomPos.y, orbit.position.y + (Math.abs(zoomPos.y - orbit.position.y) * zoomSpeed + 0.001)) : 
+                                Math.max(zoomPos.y, orbit.position.y - (Math.abs(zoomPos.y - orbit.position.y) * zoomSpeed + 0.001)));
+            orbit.position.z = (zoomPos.z - orbit.position.z > 0 ? Math.min(zoomPos.z, orbit.position.z + (Math.abs(zoomPos.z - orbit.position.z) * zoomSpeed + 0.001)) : 
+                                Math.max(zoomPos.z, orbit.position.z - (Math.abs(zoomPos.z - orbit.position.z) * zoomSpeed + 0.001)));
+        }
+
+        if (!zoomAt(zoomPos, o_center))
+        {
+            orbit.rotation.x = Math.max(orbit.rotation.x - (Math.PI / 48), 0);
+            orbit.rotation.y = Math.min(orbit.rotation.y + (Math.PI / 48), 0);
+            orbit.rotation.z = Math.max(orbit.rotation.z - (Math.PI / 48), 0);
+        }
+        else
+        {
+            orbit.rotation.x = Math.min(orbit.rotation.x + (Math.PI / 48), sysRot.x);
+            orbit.rotation.y = Math.max(orbit.rotation.y - (Math.PI / 48), sysRot.y);
+            orbit.rotation.z = Math.min(orbit.rotation.z + (Math.PI / 48), sysRot.z);
+        }
+
+        /*if (window.scrollY / 100 > 15)
+        {
+            ref.current.position.y = 0;
+        }*/
     });
 
     return (
-        <group position={[orbitCenter.x, orbitCenter.y, orbitCenter.z]} rotation={[Math.PI / 5, Math.PI / -24, Math.PI / 12]}>
-        <mesh ref={ref} scale={[centerScale, centerScale, centerScale]} rotation={[0, 0, 0]}>
-            <pointLight intensity={5} color={0xfdd835}>
+        <group ref={ref} position={[o_center.x, o_center.y, o_center.z]} rotation={[sysRot.x, sysRot.y, sysRot.z]}>
+        <mesh ref={sunRef} scale={[centerScale, centerScale, centerScale]} rotation={[0, 0, 0]}>
+            <pointLight intensity={1} color={'white'}>
                 <primitive object={center.scene}/>
             </pointLight>
         </mesh>
@@ -30,8 +73,19 @@ function Orbit({isOrbiting} : {isOrbiting: boolean}) {
     );
 }
 
-function OrbitCanvas() {
-    const [isOrbiting, setOrbiting] = useState(true);
+function StarField() {
+    const starRef = useRef<any>();
+
+    useFrame(() => {
+        starRef.current.rotation.y += 0.0002;//Math.PI / 480;
+    });
+
+    return (
+        <Stars ref={starRef} />
+    )
+}
+
+function OrbitCanvas({ o_center, zoomPos, isOrbiting } : { o_center: {x: number, y: number, z: number}, zoomPos: {x: number, y: number, z: number}, isOrbiting: boolean }) {
 
     return (
         <div style={{zIndex:'1', width: '100vw', height: '100vh', position: 'absolute', top:'120vh'}}>
@@ -42,10 +96,11 @@ function OrbitCanvas() {
                 gl={{preserveDrawingBuffer: true}}>
 
                 <Suspense>
-                    <Orbit isOrbiting={isOrbiting} />
+                    <StarField />
+                    <Orbit o_center={o_center} zoomPos={zoomPos} isOrbiting={isOrbiting} />
+                    <ambientLight />
                 </Suspense>
             </Canvas>
-            <button onClick={() => {setOrbiting(!isOrbiting)}}></button>
         </div>
     )
 }

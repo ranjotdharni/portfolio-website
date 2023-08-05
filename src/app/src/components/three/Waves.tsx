@@ -22,7 +22,7 @@ function Waves() {
 
     useFrame(() => {
         ref.current.material.uniforms.time.value = timer.getElapsedTime();
-        ref.current.position.y = (window.scrollY / 100) * 0.15;
+        ref.current.position.y = (window.scrollY / 100) * 0.075;
     });
 
     return (
@@ -34,7 +34,7 @@ function Waves() {
                 <pointLight intensity={5} position={[10, 10, 10]} />
             </points>
     )
-} //new Euler(Math.PI / 1.5, Math.PI / 12, Math.PI / 4)
+}
 
 function WavesCanvas() {
 
@@ -53,6 +53,8 @@ function WavesCanvas() {
         </div>
     )
 }
+
+//Noise function from 'The Book of Shaders'
 
 function getWavesVertexShader(): string
 {

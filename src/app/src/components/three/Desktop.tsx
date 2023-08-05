@@ -10,13 +10,13 @@ function Desktop() {
     const pc = useLoader(GLTFLoader ,'/gltf/pc/scene.gltf');
     var scale = 0.15;
     var posY = -0.4;
-    var stepY = 0.75;
+    var stepY = 0.5;
 
     const ref = useRef<any>();
     
     useFrame(() => {
-        ref.current.position.y += 0.001 * Math.sin(timer.getElapsedTime() * 2.25);
         ref.current.position.y = (window.scrollY / 100) * stepY + posY;
+        ref.current.position.y += 0.02 * Math.sin(timer.getElapsedTime() * 2.25);
         invalidate();
     });
 

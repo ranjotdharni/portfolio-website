@@ -1,0 +1,58 @@
+#main_list
+{
+    background-color: #22133a;
+    width: 35vw;
+    height: 55vh;
+    position: absolute;
+    top: 140vh;
+    left: 60vw;
+    border-radius: 1vw;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: 4% 45% 2% 45% 4%;
+    grid-template-rows: 5% 14% 5% 14% 5% 14% 5% 14% 5% 14% 5%;
+    grid-template-areas:
+    ". . . . ." 
+    ". item1 . item2 ."
+    ". . . . ."
+    ". item3 . item4 ."
+    ". . . . ."
+    ". item5 . item6 ."
+    ". . . . ."
+    ". item7 . item8 ."
+    ". . . . ."
+    ". item9 . item10 ."
+    ". . . . .";
+}
+
+.list_div
+{
+    background: #0e0818;
+    /*width: 45%;
+    height: 7.5%;*/
+    border-radius: 0.35vw;
+}
+
+.list_text
+{
+    color: aliceblue;
+    position: relative;
+    left: 35%;
+}
+
+#div1
+{
+    grid-area: item1;
+}
+#div2
+{
+    grid-area: item2;
+}
+#div3
+{
+    grid-area: item3;
+}
+#div4
+{
+    grid-area: item4;
+}
