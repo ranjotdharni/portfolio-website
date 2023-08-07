@@ -31,7 +31,7 @@ function Desktop() {
 
 function DesktopCanvas() {
     return (
-        <div style={{zIndex:'1', width: '100vw', height: '100vh', position: 'relative', left: '-10vw'}}>
+        <div id='main' style={{zIndex:'1', width: '100vw', height: '100vh', position: 'relative', left: '-10vw'}}>
             <Canvas
             frameloop='demand'
                 shadows

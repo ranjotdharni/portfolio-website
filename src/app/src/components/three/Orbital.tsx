@@ -35,7 +35,6 @@ function RadianRandom(min: number, max: number): number {
 }
 
 function Orbital(this: any, {fileName, radius, orbitSpeed, spinSpeed, isOrbiting} : {fileName: string, radius: number, orbitSpeed: number, spinSpeed: number, isOrbiting: boolean}) {
-    const model = useLoader(GLTFLoader , fileName);
     const timer = new Clock();
     timer.start();
     const [decal] = useTexture(['/png/js.png']);

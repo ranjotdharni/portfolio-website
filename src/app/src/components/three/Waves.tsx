@@ -22,7 +22,7 @@ function Waves() {
 
     useFrame(() => {
         ref.current.material.uniforms.time.value = timer.getElapsedTime();
-        ref.current.position.y = (window.scrollY / 100) * 0.075;
+        ref.current.position.y = (window.scrollY / 100) * 0.15;
     });
 
     return (
@@ -39,7 +39,7 @@ function Waves() {
 function WavesCanvas() {
 
     return (
-        <div style={{zIndex:'1', width: '100vw', height: '120vh', position: 'absolute'}}>
+        <div style={{zIndex:'1', width: '100vw', height: '110vh', position: 'absolute'}}>
             <Canvas
                 frameloop='demand'
                 shadows
