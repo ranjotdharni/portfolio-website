@@ -1,9 +1,8 @@
 .main
 {
     width: 90vw; 
-    height: 30vh;
+    height: 20vh;
     position: absolute;
-    top: 110vh;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -18,4 +17,14 @@
 .main:active
 {
     cursor: grabbing;
+}
+
+#main1
+{
+    top: 110vh;
+}
+
+#main2
+{
+    top: 130vh;
 }
