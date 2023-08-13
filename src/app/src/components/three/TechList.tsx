@@ -15,7 +15,7 @@ function TechList() {
                 entry.target.classList.remove('show');
             }
         });
-    }, {threshold: 0.6});
+    }, {threshold: 0.65});
 
     useEffect(() => {
         const fp: Element = document.getElementById('fadePrimary')!;
@@ -25,6 +25,12 @@ function TechList() {
     return (
         <div id='fadePrimary'>
             <p id='title'>Explore My Tech Stack</p>
+            <p id='stack_text'>
+                Below are the technologies that I'm familiar with. I use these on
+                a regular basis to develop web apps with the most modern tools for
+                efficient development. Currently, I am working on familiarizing myself with
+                Python, including the Django framework for backend development. 
+            </p>
 
             <div className='main' id='main1'>
                 <Tablet logoScale={0.025} text='HTML5' fontColor='#ffffff' fontSize={2.75} fontX={-2.75} fontY={-1.25} fileName='/gltf/o_html/scene.glb' leftColor='#ffffff' rightColor='#e34c26' />

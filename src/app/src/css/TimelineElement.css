@@ -1,0 +1,19 @@
+#icon_img
+{
+    width: 100%;
+    height: 100%;
+}
+
+#link
+{
+    text-decoration: none;
+    color: var(--custom-base);
+    text-shadow: 1px 1px 22px var(--custom-color), -1px -1px 22px var(--custom-color),
+        1px -1px 22px var(--custom-color), -1px 1px 22px var(--custom-color),
+        0px 0px 2px var(--custom-color), 0px 0px 3px var(--custom-color), 0px 0px 4px var(--custom-color);
+}
+
+.click:hover
+{
+    cursor: pointer;
+}

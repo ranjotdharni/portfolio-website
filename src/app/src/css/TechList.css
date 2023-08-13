@@ -38,6 +38,30 @@
         0px 0px 2px var(--purple-color), 0px 0px 3px var(--purple-color), 0px 0px 4px var(--purple-color);
 }
 
+#title::after
+{
+    content: '';
+    background-color: aliceblue;
+    position: absolute;
+    width: 0.1%;
+    height: 90%;
+    top: 5%;
+    left: 112.25%;
+}
+
+#stack_text
+{
+    width: 30%;
+    height: 15%;
+    position: absolute;
+    top: 8%;
+    left: 40%;
+    display: grid;
+    place-items: center;
+    font-size: 1vw;
+    color: var(--purple-color);
+}
+
 .main
 {
     background-color: rgb(27, 14, 30);
@@ -66,11 +90,6 @@
 {
     border-top-left-radius: 1vw;
     border-top-right-radius: 1vw;
-}
-
-#main2
-{
-    
 }
 
 #main3
