@@ -13,7 +13,7 @@ function Project({ props } : { props: any})
     //href={props.link}
     return (
         <VerticalTimelineElement 
-            onTimelineElementClick={() => {window.open(props.link, '_blank');}}
+            onTimelineElementClick={() => {if (props.link != '') {window.open(props.link, '_blank');}}}
             style={{width: (width ? '120%' : '150%'), position: 'relative', left: (width ? '-10%' : '-25%')}}
             contentStyle={{background: 'rgb(27, 14, 30)', color: '#fff'}}
             contentArrowStyle={{borderRight: '7px solid #232631'}}
