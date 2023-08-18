@@ -30,7 +30,7 @@ const primitives = [
         project_name: 'Meteorize',
         desc: 'Static Weather SPA',
         points: [
-            'Employed Next.js framework to bootstrap web app allowing for server-side rendering, faster page loads, improved SEO, and simplified routing.',
+            'Utilized Next.js framework to bootstrap web app allowing for server-side rendering, faster page loads, improved SEO, and simplified routing.',
             'Parsed and transformed API responses using React component-based architecture promoting reusability and maintainability of a dynamic frontend.',
             'Integrated Open-Meteo weather API to fetch and format real-time weather data creating a seamless user experience.',
             'Effectuated documentation-driven development by translating API specifications into working code, ensuring robust functionality between API and app capabilities.'
