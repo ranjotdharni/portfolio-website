@@ -8,6 +8,7 @@ function Contact() {
         <>
             <Stars />
             <Planet />
+            <ContactForm />
         </>
     );
 }
