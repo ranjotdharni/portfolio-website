@@ -1,8 +1,8 @@
 //import { OrbitControls } from "@react-three/drei";
 import { Canvas, useFrame } from "@react-three/fiber";
-import { useMemo, useRef } from "react";
+import { useEffect, useMemo, useRef } from "react";
 
-const maxY = 5.101;
+const maxY = 5.302;
 
 function getCurrentY() {
     return ((window.innerHeight + window.scrollY) / document.body.offsetHeight) / maxY;
@@ -47,6 +47,12 @@ void main() {
 `
 
 const Stars = (props: {count: number}) => {
+    useEffect(() => {
+      window.addEventListener('scroll', () => {
+        console.log((window.innerHeight + window.scrollY) / document.body.offsetHeight);
+      });
+    });
+
     const { count } = props;
     const radius = 10;
     const points = useRef<any>()!;
@@ -105,7 +111,7 @@ const Stars = (props: {count: number}) => {
 
 function StarsCanvas() {
     return (
-        <div style={{zIndex:'1', width: '100vw', height: '100vh', position: 'absolute', left: '0', top: '410vh'}}>
+        <div style={{zIndex:'1', width: '100vw', height: '100vh', position: 'absolute', left: '0', top: '430vh'}}>
             <Canvas
             frameloop='demand'
                 shadows

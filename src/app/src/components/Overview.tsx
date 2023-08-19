@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import '../css/Overview.css'
 
 function RoleDiv({x, y, src, desc} : {x: number, y: number, src: string, desc: string}) {
@@ -11,9 +12,38 @@ function RoleDiv({x, y, src, desc} : {x: number, y: number, src: string, desc: s
     )
 }
 
-function Content() {
+function InfoDiv({title, desc, x, y, margin, splitMargin} : {title: string, desc: string, x: number, y: number, margin: number, splitMargin: number}) {
     return (
-        <div id="overviewPrimary" style={{width: '80vw', height: '60vh', position: 'absolute', top: '90vh', left: '10vw'}}>
+        <span className='infoMain' style={{top: y + '%', left: x + '%'}}>
+            <p className='infoTitle'>{title}</p>
+            <p className='infoSplit' style={{left: splitMargin + '%'}}>:</p>
+            <div className='infoDescWrapper'>
+                <p className='infoDesc' style={{marginLeft: margin + '%'}}>{desc}</p>
+            </div>
+        </span>
+    )
+}
+
+function Content() {
+    useEffect(() => {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting)
+                {
+                    entry.target.classList.add('Oshow');
+                }
+                else
+                {
+                    entry.target.classList.remove('Oshow');
+                }
+            });
+        }, {threshold: 0.75});
+        const fp = document.getElementById('overviewPrimary')!;
+        observer.observe(fp);
+    }, []);
+
+    return (
+        <div id="overviewPrimary" style={{width: '80vw', height: '60vh', position: 'absolute', top: '95vh', left: '10vw'}}>
             <p id="overviewTitle">Overview</p>
 
             <RoleDiv x={2} y={5} src='/png/uiIcon.png' desc='UI/UX Design' />
@@ -27,6 +57,11 @@ function Content() {
                 on specific development or need your own dynamic web app, let's work together to make a product that you and
                 your users will love!   
             </p>
+
+            <InfoDiv splitMargin={2} margin={6} title='Experience' desc='2+ Years' x={65} y={58}></InfoDiv>
+            <InfoDiv splitMargin={6} margin={11} title='Location' desc='Yuba City, CA' x={65} y={69}></InfoDiv>
+            <InfoDiv splitMargin={3} margin={8} title='Education' desc='B.S. Computer Science - May 2024' x={65} y={80}></InfoDiv>
+
         </div>
     )
 }

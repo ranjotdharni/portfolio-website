@@ -10,7 +10,7 @@ export default function App() {
     const divRef = useRef<any>();
       
     const animate = (time: any) => {
-        divRef.current.style.top = 413 + (Math.sin(time / 600)) + 'vh';
+        divRef.current.style.top = 433 + (Math.sin(time / 600)) + 'vh';
         requestRef.current = requestAnimationFrame(animate);
     };
       
@@ -28,7 +28,7 @@ export default function App() {
     }
 
   return (
-        <div ref={divRef} style={{zIndex: '2', width: '70vw', height: '95vh', position: 'absolute', top: '413vh', left: '-10vw'}}>
+        <div ref={divRef} style={{zIndex: '2', width: '70vw', height: '95vh', position: 'absolute', top: '433vh', left: '-10vw'}}>
             <form>
                 <input id='nameInput' className='input3d' placeholder='First'></input>
             </form>

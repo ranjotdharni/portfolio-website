@@ -6,6 +6,15 @@
     backdrop-filter: blur(0.8px);
     -webkit-backdrop-filter: blur(0.8px);
     border: 1px solid rgba(13, 13, 13, 0.19);
+    transform: translateX(20%);
+    opacity: 0;
+    transition: all 0.3s ease-in;
+}
+
+.Oshow
+{
+    opacity: 1 !important;
+    transform: translateX(0) !important;
 }
 
 #overviewTitle
@@ -76,4 +85,65 @@
     left: 3%;
     font-size: 1.15vw;
     line-height: 2;
+}
+
+.infoMain
+{
+    width: 34%;
+    height: 5%;
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.infoTitle
+{
+    font-size: 1.25vw;
+    overflow: hidden;
+    border-radius: 0.25vw;
+    display: grid;
+    place-items: center;
+    padding: 2%;
+    background-color: rgb(27, 14, 30);
+    color: var(--purple-base);
+    text-shadow: 1px 1px 22px var(--purple-color), -1px -1px 22px var(--purple-color),
+        1px -1px 22px var(--purple-color), -1px 1px 22px var(--purple-color),
+        0px 0px 2px var(--purple-color), 0px 0px 3px var(--purple-color), 0px 0px 4px var(--purple-color);
+}
+
+.infoSplit
+{
+    overflow: hidden;
+    font-size: 2vw;
+    display: grid;
+    place-items: center;
+    position: relative;
+    top: -10%;
+    color: var(--purple-base);
+    text-shadow: 1px 1px 22px var(--purple-color), -1px -1px 22px var(--purple-color),
+        1px -1px 22px var(--purple-color), -1px 1px 22px var(--purple-color),
+        0px 0px 2px var(--purple-color), 0px 0px 3px var(--purple-color), 0px 0px 4px var(--purple-color);
+}
+
+.infoDescWrapper
+{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    width: 73.25%;
+    height: 100%;
+}
+
+.infoDesc
+{
+    font-size: 1.15vw;
+    color: #216da0;
+    border-radius: 0.25vw;
+    display: grid;
+    place-items: center;
+    padding: 2.5%;
+    background-color: rgb(27, 14, 30);
 }
