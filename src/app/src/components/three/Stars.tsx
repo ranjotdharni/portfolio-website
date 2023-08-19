@@ -2,7 +2,7 @@
 import { Canvas, useFrame } from "@react-three/fiber";
 import { useMemo, useRef } from "react";
 
-const maxY = 4.45;
+const maxY = 5.101;
 
 function getCurrentY() {
     return ((window.innerHeight + window.scrollY) / document.body.offsetHeight) / maxY;
@@ -105,7 +105,7 @@ const Stars = (props: {count: number}) => {
 
 function StarsCanvas() {
     return (
-        <div style={{zIndex:'1', width: '100vw', height: '100vh', position: 'absolute', left: '0', top: '330vh'}}>
+        <div style={{zIndex:'1', width: '100vw', height: '100vh', position: 'absolute', left: '0', top: '410vh'}}>
             <Canvas
             frameloop='demand'
                 shadows
@@ -118,9 +118,5 @@ function StarsCanvas() {
         </div>
     );
 }
-
-/*window.addEventListener('scroll', () => {
-    console.log((window.innerHeight + window.scrollY) / document.body.offsetHeight);
-});*/
 
 export default StarsCanvas

@@ -1,0 +1,31 @@
+::placeholder
+{
+    color: purple;
+}
+
+.input3d
+{
+    color: purple;
+    background: none;
+    position: absolute;
+    rotate: z 1deg;
+    border: none;
+    outline: none;
+    font-size: 1.25vw;
+    text-align: center;
+    transition: all 1s ease;
+}
+
+#nameInput
+{
+    width: 16.5%;
+    height: 4.5%;
+    top: 23.5%;
+    left: 38.5%;
+}
+
+#nameInput:hover
+{
+    top: 24.25%;
+    left: 38%;
+}

@@ -4,13 +4,17 @@ import { useRef } from "react";
 import { Clock } from "three";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 
+const back = -30;
+
 function ExclusiveRandom(min: number, max: number): number {
     const root = Math.random();
     const randomNumber = min + root * (max - min);
     return randomNumber;
 }
 
-function Tablet({fontColor, leftColor, rightColor, fileName, fontSize, fontX, fontY, text, logoScale} : {fontColor: string ,leftColor: string, rightColor: string, fileName: string, fontSize: number, fontX: number, fontY: number, text: string, logoScale: number}) {
+function Tablet({flatScale, fontColor, leftColor, rightColor, fileName, fontSize, fontX, fontY, text, logoScale, pos, row} : {fontColor: string ,leftColor: string, rightColor: string, fileName: string, fontSize: number, fontX: number, fontY: number, text: string, logoScale: number, pos: number, row: number, flatScale: number}) {
+    const baseX = -40.5 * flatScale;
+    const baseY = 20 * flatScale;
     const timer = new Clock();
     timer.start();
     
@@ -25,23 +29,18 @@ function Tablet({fontColor, leftColor, rightColor, fileName, fontSize, fontX, fo
         
         tablet.rotation.y = (Math.PI / 30) * Math.cos((timer.getElapsedTime() * rotSpeed) + rotOffset);
         tablet.rotation.x = (Math.PI / 36) * Math.cos((timer.getElapsedTime()) + rotOffset);
-        tablet.position.y = 0.5 * Math.cos(timer.getElapsedTime() * 2 + rotOffset);
+        tablet.position.y += 0.01 * Math.cos(timer.getElapsedTime() * 2 + rotOffset);//baseX + (pos * 50), baseY - (row * 50)
     });
 
     return (
         <>
-            <group ref={ref}>
-                <pointLight intensity={25} position={[1, 1, 5]} />
-                <pointLight intensity={25} position={[-1, 1, -5]} />
-                <pointLight intensity={30} position={[0, -0.5, 0]} />
-                <pointLight intensity={30} position={[0, 0.5, 0]} />
+            <group position={[baseX + (pos * 27) * flatScale, baseY - (row * 20) * flatScale, back]} scale={[flatScale, flatScale, flatScale]} ref={ref}>
+                
                 <RoundedBox receiveShadow args={[20, 7, 1]} radius={0.4} position={[0, 0, 0]}>
                     <meshLambertMaterial attach="material" color={leftColor} />
-                    <hemisphereLight intensity={1.25} groundColor={"black"} />
                 </RoundedBox>
                 <RoundedBox receiveShadow args={[16.05, 7.05, 1.05]} radius={0.4} position={[4, 0, 0]}>
                     <meshLambertMaterial attach="material" color={rightColor} />
-                    <hemisphereLight intensity={1.25} groundColor={"black"} />
                 </RoundedBox>
                 <mesh position={[-6.75, 0, 0.5]} scale={[scale, scale, scale]} rotation={[Math.PI / 2, 0, 0]}>
                     <primitive object={logo.scene}/>  
@@ -55,23 +54,32 @@ function Tablet({fontColor, leftColor, rightColor, fileName, fontSize, fontX, fo
     );
 }
 
-function TabletCanvas() {
+function TabletCanvas({scale} : {scale: number}) {
+
     return (
         <>
-        <Tablet logoScale={0.025} text='HTML5' fontColor='#ffffff' fontSize={2.75} fontX={-2.75} fontY={-1.25} fileName='/gltf/o_html/scene.glb' leftColor='#ffffff' rightColor='#e34c26' />
-        <Tablet logoScale={0.02} text='CSS3' fontColor='#ffffff' fontSize={3.5} fontX={-2.25} fontY={-1.75} fileName='/gltf/o_css/scene.glb' leftColor='#ffffff' rightColor='#264de4' />
-        <Tablet logoScale={0.025} text='ReactJS' fontColor='#4c768d' fontSize={2.5} fontX={-3.25} fontY={-1.25} fileName='/gltf/o_react/scene.glb' leftColor='#4c768d' rightColor='#88dded' />
-        <Tablet logoScale={0.025} text='ThreeJS' fontColor='#ffffff' fontSize={2.25} fontX={-2.75} fontY={-1.25} fileName='/gltf/o_r3f/scene.glb' leftColor='#ffffff' rightColor='#000000' />
+        <RoundedBox receiveShadow castShadow args={[125 * scale, 60 * scale, 2]} position={[0, 0, back - 2.75]} radius={1} smoothness={6} >
+            <meshLambertMaterial color="#6c1e8a" />
+        </RoundedBox>
+        
+        <pointLight position={[20, 30, 0]} color={'#ebc5f5'}  intensity={5000} />
+        <pointLight position={[-20, -30, 0]} color={'#ebc5f5'}  intensity={1000} />
+        <pointLight position={[0, 0, -50]} color={'#ebc5f5'}  intensity={5000} />
+
+        <Tablet flatScale={scale} row={0} pos={0} logoScale={0.025} text='HTML5' fontColor='#ffffff' fontSize={2.75} fontX={-2.75} fontY={-1.25} fileName='/gltf/o_html/scene.glb' leftColor='#ffffff' rightColor='#e34c26' />
+        <Tablet flatScale={scale} row={0} pos={1} logoScale={0.02} text='CSS3' fontColor='#ffffff' fontSize={3.5} fontX={-2.25} fontY={-1.75} fileName='/gltf/o_css/scene.glb' leftColor='#ffffff' rightColor='#264de4' />
+        <Tablet flatScale={scale} row={0} pos={2} logoScale={0.025} text='ReactJS' fontColor='#4c768d' fontSize={2.5} fontX={-3.25} fontY={-1.25} fileName='/gltf/o_react/scene.glb' leftColor='#4c768d' rightColor='#88dded' />
+        <Tablet flatScale={scale} row={0} pos={3} logoScale={0.025} text='ThreeJS' fontColor='#ffffff' fontSize={2.25} fontX={-2.75} fontY={-1.25} fileName='/gltf/o_r3f/scene.glb' leftColor='#ffffff' rightColor='#000000' />
     
-        <Tablet logoScale={0.025} text='JavaScript' fontColor='#323330' fontSize={1.75} fontX={-2.75} fontY={-0.75} fileName='/gltf/o_js/scene.glb' leftColor='#323330' rightColor='#f0db4f' />
-        <Tablet logoScale={0.025} text='TypeScript' fontColor='#ffffff' fontSize={1.75} fontX={-3} fontY={-1} fileName='/gltf/o_ts/scene.glb' leftColor='#ffffff' rightColor='#007acc' />
-        <Tablet logoScale={0.02} text='NodeJS' fontColor='#303030' fontSize={2.5} fontX={-2.5} fontY={-1.25} fileName='/gltf/o_node/scene.glb' leftColor='#3c873a' rightColor='#68a063' />
-        <Tablet logoScale={0.025} text='SQL' fontColor='#f29111' fontSize={4} fontX={-1.5} fontY={-2} fileName='/gltf/o_sql/scene.glb' leftColor='#f29111' rightColor='#00758f' />
+        <Tablet flatScale={scale} row={1} pos={0} logoScale={0.025} text='JavaScript' fontColor='#323330' fontSize={1.75} fontX={-2.75} fontY={-0.75} fileName='/gltf/o_js/scene.glb' leftColor='#323330' rightColor='#f0db4f' />
+        <Tablet flatScale={scale} row={1} pos={1} logoScale={0.025} text='TypeScript' fontColor='#ffffff' fontSize={1.75} fontX={-3} fontY={-1} fileName='/gltf/o_ts/scene.glb' leftColor='#ffffff' rightColor='#007acc' />
+        <Tablet flatScale={scale} row={1} pos={2} logoScale={0.02} text='NodeJS' fontColor='#303030' fontSize={2.5} fontX={-2.5} fontY={-1.25} fileName='/gltf/o_node/scene.glb' leftColor='#3c873a' rightColor='#68a063' />
+        <Tablet flatScale={scale} row={1} pos={3} logoScale={0.025} text='SQL' fontColor='#f29111' fontSize={4} fontX={-1.5} fontY={-2} fileName='/gltf/o_sql/scene.glb' leftColor='#f29111' rightColor='#00758f' />
    
-        <Tablet logoScale={0.025} text='Java' fontColor='#f89820' fontSize={4} fontX={-2.75} fontY={-2} fileName='/gltf/o_java/scene.glb' leftColor='#f89820' rightColor='#5382a1' />
-        <Tablet logoScale={0.025} text='NextJS' fontColor='#ffffff' fontSize={2.5} fontX={-2.25} fontY={-1.25} fileName='/gltf/o_next/scene.glb' leftColor='#ffffff' rightColor='#000000' />
-        <Tablet logoScale={0.02} text='Git' fontColor='#3e2c00' fontSize={4} fontX={-1} fontY={-2} fileName='/gltf/o_git/scene.glb' leftColor='#3e2c00' rightColor='#f1502f' />
-        <Tablet logoScale={0.025} text='SocketIO' fontColor='#ffffff' fontSize={2} fontX={-2.5} fontY={-1.25} fileName='/gltf/o_socketio/scene.glb' leftColor='#ffffff' rightColor='#000000' />
+        <Tablet flatScale={scale} row={2} pos={0} logoScale={0.025} text='Java' fontColor='#f89820' fontSize={4} fontX={-2.75} fontY={-2} fileName='/gltf/o_java/scene.glb' leftColor='#f89820' rightColor='#5382a1' />
+        <Tablet flatScale={scale} row={2} pos={1} logoScale={0.025} text='NextJS' fontColor='#ffffff' fontSize={2.5} fontX={-2.25} fontY={-1.25} fileName='/gltf/o_next/scene.glb' leftColor='#ffffff' rightColor='#000000' />
+        <Tablet flatScale={scale} row={2} pos={2} logoScale={0.02} text='Git' fontColor='#3e2c00' fontSize={4} fontX={-1} fontY={-2} fileName='/gltf/o_git/scene.glb' leftColor='#3e2c00' rightColor='#f1502f' />
+        <Tablet flatScale={scale} row={2} pos={3} logoScale={0.025} text='SocketIO' fontColor='#ffffff' fontSize={2} fontX={-2.5} fontY={-1.25} fileName='/gltf/o_socketio/scene.glb' leftColor='#ffffff' rightColor='#000000' />
     </>
     );
 }
