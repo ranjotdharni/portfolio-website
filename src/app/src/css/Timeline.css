@@ -5,3 +5,21 @@
     position: absolute;
     top: 280vh;
 }
+
+#timelineTitle
+{
+    width: 30%;
+    height: 15%;
+    position: absolute;
+    top: -26.5%;
+    left: 62%;
+    border-radius: 1vw;
+    display: grid;
+    place-items: center;
+    font-size: 3vw;
+    background-color: rgb(27, 14, 30);
+    color: var(--purple-base);
+    text-shadow: 1px 1px 22px var(--purple-color), -1px -1px 22px var(--purple-color),
+        1px -1px 22px var(--purple-color), -1px 1px 22px var(--purple-color),
+        0px 0px 2px var(--purple-color), 0px 0px 3px var(--purple-color), 0px 0px 4px var(--purple-color);
+}

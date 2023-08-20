@@ -47,11 +47,6 @@ void main() {
 `
 
 const Stars = (props: {count: number}) => {
-    useEffect(() => {
-      window.addEventListener('scroll', () => {
-        console.log((window.innerHeight + window.scrollY) / document.body.offsetHeight);
-      });
-    });
 
     const { count } = props;
     const radius = 10;

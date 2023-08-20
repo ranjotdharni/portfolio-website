@@ -1,12 +1,14 @@
 import Tablet from './Tablet';
 import Character from '../spline/Character';
 import '../../css/TechList.css';
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls } from '@react-three/drei';
 //import { useRef } from 'react';
 
 function TechList() {
+    const ref = useRef<any>();
+
     const observer = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
             if (entry.isIntersecting)
@@ -35,13 +37,13 @@ function TechList() {
                 Python, including the Django framework for backend development. 
             </p>
 
-            <div style={{width: '75%', height: '90%', position: 'absolute', top: '20%', left: '-6%', zIndex: '1'}}>
+            <div ref={ref} style={{width: '75%', height: '90%', position: 'absolute', top: '20%', left: '-6%', zIndex: '1'}}>
             <Canvas
             shadows
             camera={{position: [0, 0, 35], fov: 45}}
             gl={{preserveDrawingBuffer: true}}
             >
-                <Tablet scale={0.5} />
+                <Tablet reference={ref} scale={0.5} />
                 <OrbitControls enablePan={false} enableZoom={false} target={[0, 0, -35]} maxPolarAngle={Math.PI / 2} minPolarAngle={Math.PI / 2}/>
             </Canvas>
             </div>

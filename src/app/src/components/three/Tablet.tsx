@@ -54,10 +54,26 @@ function Tablet({flatScale, fontColor, leftColor, rightColor, fileName, fontSize
     );
 }
 
-function TabletCanvas({scale} : {scale: number}) {
+function TabletCanvas({scale, reference} : {scale: number, reference: any}) {
+
+    function Enter() {
+        reference.current.style.cursor = 'grab';
+    }
+
+    function Down() {
+        reference.current.style.cursor = 'grabbing';
+    }
+
+    function Leave() {
+        reference.current.style.cursor = 'default';
+    }
+
+    function Up() {
+        reference.current.style.cursor = 'grab';
+    }
 
     return (
-        <>
+        <group onPointerEnter={Enter} onPointerDown={Down} onPointerOut={Leave} onPointerUp={Up}>
         <RoundedBox receiveShadow castShadow args={[125 * scale, 60 * scale, 2]} position={[0, 0, back - 2.75]} radius={1} smoothness={6} >
             <meshLambertMaterial color="#6c1e8a" />
         </RoundedBox>
@@ -80,7 +96,7 @@ function TabletCanvas({scale} : {scale: number}) {
         <Tablet flatScale={scale} row={2} pos={1} logoScale={0.025} text='NextJS' fontColor='#ffffff' fontSize={2.5} fontX={-2.25} fontY={-1.25} fileName='/gltf/o_next/scene.glb' leftColor='#ffffff' rightColor='#000000' />
         <Tablet flatScale={scale} row={2} pos={2} logoScale={0.02} text='Git' fontColor='#3e2c00' fontSize={4} fontX={-1} fontY={-2} fileName='/gltf/o_git/scene.glb' leftColor='#3e2c00' rightColor='#f1502f' />
         <Tablet flatScale={scale} row={2} pos={3} logoScale={0.025} text='SocketIO' fontColor='#ffffff' fontSize={2} fontX={-2.5} fontY={-1.25} fileName='/gltf/o_socketio/scene.glb' leftColor='#ffffff' rightColor='#000000' />
-    </>
+    </group>
     );
 }
 /*<div style={{width: '23%', height: '90%'}}>

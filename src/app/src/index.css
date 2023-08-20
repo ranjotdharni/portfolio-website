@@ -6,11 +6,29 @@ body
     font-family: 'Barlow', sans-serif;
     background-color: #0f080f;
     overflow-y: scroll;
+    overflow-x: hidden;
     -ms-overflow-style: none;
     scrollbar-width: none;
 }
 
 body::-webkit-scrollbar
 {
-    display: none;
+    height: 1vh;
+    width: 0.5vw;
+}
+
+body::-webkit-scrollbar-track
+{
+    margin-block: 0.25vw;
+    padding-left: 1vw;
+    border-radius: 1vw;
+    background-color: rgba(0, 0, 0,0);
+}
+
+body::-webkit-scrollbar-thumb
+{
+    border: 0.2vh solid rgba(0, 0, 0, 0);
+    background-clip: padding-box;
+    background-color: rgb(70, 0, 128);
+    border-radius: 100vw;
 }

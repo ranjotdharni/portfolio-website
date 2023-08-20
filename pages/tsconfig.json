@@ -1,9 +1,0 @@
-{
-    "compilerOptions": {
-        "module": "ES6",
-        "moduleResolution": "Node",
-        "target": "ES5",
-        "outDir": "public/js"
-    },
-    "include": ["ts/**/*"]
-}

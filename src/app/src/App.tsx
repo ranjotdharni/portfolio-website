@@ -3,10 +3,13 @@ import Tech from './components/Tech.js';
 import Projects from './components/Projects.js';
 import Contact from './components/Contact.js';
 import Overview from './components/Overview.js';
+import ScrollBar from './components/ScrollBar.js';
 
 function App() {
   return (
     <>
+      <ScrollBar></ScrollBar>
+
       <Intro></Intro>
       <Overview></Overview>
       <Tech></Tech>

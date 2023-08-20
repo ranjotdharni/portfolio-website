@@ -54,6 +54,7 @@ function ProjectTimeline()
 {
     return (
         <div id='timeline'>
+            <p id='timelineTitle'>Projects</p>
             <VerticalTimeline>
                 {primitives.map((proj, index) => {
                     return <Project key={index} props={proj}></Project>

@@ -40,9 +40,22 @@
     width: 15%;
     height: 35%;
     position: absolute;
-    border: solid 1px rgb(106, 191, 224);
+    border: solid 1px rgb(181, 106, 224);
     border-radius: 1vw;
-    background: linear-gradient(to top, #09203f 0%, #537895 100%);
+    /*background: /*linear-gradient(to top, #09203f 0%, #537895 100%) linear-gradient(to top, #c471f5 0%, #fa71cd 100%);*/
+    background-image: linear-gradient(
+        45deg,
+        hsl(223deg 68% 6%) 0%,
+        hsl(232deg 75% 16%) 14%,
+        hsl(242deg 82% 26%) 40%,
+        hsl(252deg 89% 35%) 62%,
+        hsl(261deg 97% 45%) 76%,
+        hsl(266deg 92% 55%) 85%,
+        hsl(267deg 76% 65%) 92%,
+        hsl(268deg 60% 75%) 96%,
+        hsl(268deg 42% 84%) 99%,
+        hsl(270deg 27% 94%) 100%
+      );
 }
 
 .roleDiv img 
@@ -66,7 +79,7 @@
 
 .descContainer p 
 {
-    color: #216da0;
+    color: var(--purple-color);/*#216da0;*/
     text-align: center;
 }
 
@@ -77,7 +90,7 @@
 
 #overviewDesc
 {
-    color: #216da0;
+    color: var(--purple-color);
     width: 60%;
     height: 35%;
     position: absolute;
@@ -140,7 +153,7 @@
 .infoDesc
 {
     font-size: 1.15vw;
-    color: #216da0;
+    color: var(--purple-color);
     border-radius: 0.25vw;
     display: grid;
     place-items: center;

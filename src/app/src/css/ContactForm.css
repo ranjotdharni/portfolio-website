@@ -29,3 +29,53 @@
     top: 24.25%;
     left: 38%;
 }
+
+#lastInput
+{
+    width: 15.5%;
+    height: 4.25%;
+    top: 24.125%;
+    left: 58.75%;
+}
+
+#lastInput:hover
+{
+    top: 25%;
+    left: 57.5%;
+}
+
+#emailInput
+{
+    border-radius: 6vw;
+    width: 35%;
+    height: 3.5%;
+    top: 37%;
+    left: 39%;
+    rotate: z 0.25deg;
+}
+
+#emailInput:hover
+{
+    top: 37.25%;
+    left: 37.5%;
+}
+
+#messageInput
+{
+    font-size: 1.15vw;
+    width: 42%;
+    height: 17%;
+    top: 51%;
+    left: 30.75%;
+    rotate: z -0.25deg;
+    text-align: left;
+    overflow: hidden;
+    resize: none;
+}
+
+#messageInput:hover
+{
+    top: 51%;
+    left: 30%;
+}
+

@@ -1,0 +1,161 @@
+.scrollMain
+{
+    width: 0.5%;
+    height: 25%;
+    position: fixed;
+    top: 10%;
+    left: 97.5%;
+    z-index: 3;
+    border-radius: 0.5vw;
+    background-color: rgb(70, 0, 128);
+}
+
+.scrollMain::after
+{
+    content: '';
+    width: 101%;
+    height: 20%;
+    border-bottom-left-radius: 0.5vw;
+    border-bottom-right-radius: 0.5vw;
+    background-color: rgb(70, 0, 128);
+    position: absolute;
+    top: 99%;
+}
+
+.scrollBack
+{
+    z-index: 2;
+    border-radius: 0.5vw;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-image: linear-gradient(
+        120deg,
+        hsl(305deg 100% 35%) 0%,
+        hsl(314deg 65% 47%) 13%,
+        hsl(322deg 63% 55%) 25%,
+        hsl(330deg 69% 62%) 37%,
+        hsl(337deg 75% 69%) 50%,
+        hsl(343deg 81% 75%) 63%,
+        hsl(349deg 88% 80%) 75%,
+        hsl(355deg 94% 85%) 87%,
+        hsl(0deg 100% 90%) 100%
+    );
+}
+
+.bubbleMain
+{
+    z-index: 3;
+    margin-left: 1%;
+    position: absolute;
+    background-color: rgb(41, 20, 46);
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease-in;
+}
+
+.bubbleText
+{
+    color: rgb(88, 76, 76);
+    font-size: 1vw;
+}
+
+.bubbleExpand
+{
+    font-size: 1.25vw;
+    color: var(--purple-base);
+    text-shadow: 1px 1px 22px var(--purple-color), -1px -1px 22px var(--purple-color),
+        1px -1px 22px var(--purple-color), -1px 1px 22px var(--purple-color),
+        0px 0px 2px var(--purple-color), 0px 0px 3px var(--purple-color), 0px 0px 4px var(--purple-color);
+}
+
+.bubbleMain:hover
+{
+    cursor: pointer;
+}
+
+.bubbleText:hover
+{
+    cursor: pointer;
+}
+
+.scrollBox
+{
+    border: solid 0.15vw rgb(70, 0, 128);
+    border-radius: 1.25vw;
+    width: 1.25vw;
+    height: 7vh;
+    position: absolute;
+    opacity: 0;
+    animation: slide_scroll 500ms ease-in 6s 1 forwards;
+}
+
+.scrollBox div
+{
+    width: 80%;
+    height: 25%;
+    position: absolute;
+    top: 5%;
+    left: 10%;
+    background-color: aliceblue;
+    border-radius: 5vw;
+    animation: scroll_wheel 2.5s ease-in 7s infinite alternate;
+}
+
+#scroll1
+{
+    --top: 23vh;
+    --bottom: 21vh;
+    top: var(--bottom);
+    left: 90vw;
+}
+
+#scroll1::before
+{
+    content: '';
+    width: 50%;
+    height: 20%;
+    background-color: rgb(70, 0, 128);
+    position: absolute;
+    top: 163%;
+    left: 225%;
+    transform: rotateZ(45deg);
+}
+
+#scroll1::after
+{
+    content: 'Navigate';
+    position: absolute;
+    top: 140%;
+    left: -175%;
+    background-color: #0f080f;
+    color: aliceblue;
+    font-size: 1.25vw;
+    border: solid 2px rgb(70, 0, 128);
+    border-radius: 0.25vw;
+    padding: 20%;
+}
+
+#scroll2
+{
+    --top: 282vh;
+    --bottom: 284vh;
+    top: var(--bottom);
+    left: 60vw;
+}
+
+@keyframes scroll_wheel
+{
+    0% {top: 5%}
+    100% {top: 75%}
+}
+
+@keyframes slide_scroll
+{
+    0% {opacity: 0; top: var(--top);}
+    100% {opacity: 1; top: var(--bottom);}
+}

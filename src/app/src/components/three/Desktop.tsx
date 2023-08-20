@@ -4,7 +4,7 @@ import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 import { OrbitControls } from '@react-three/drei';
 import { Clock } from 'three';
 
-function Desktop() {
+function Desktop({reference} : {reference: any}) {
     const timer = new Clock();
     timer.start();
     const pc = useLoader(GLTFLoader ,'/gltf/pc/scene.gltf');
@@ -13,6 +13,22 @@ function Desktop() {
     var stepY = 0.5;
 
     const ref = useRef<any>();
+
+    function Enter() {
+        reference.current.style.cursor = 'grab';
+    }
+
+    function Down() {
+        reference.current.style.cursor = 'grabbing';
+    }
+
+    function Leave() {
+        reference.current.style.cursor = 'default';
+    }
+
+    function Up() {
+        reference.current.style.cursor = 'grab';
+    }
     
     useFrame(() => {
         ref.current.position.y = (window.scrollY / 100) * stepY + posY;
@@ -21,7 +37,7 @@ function Desktop() {
     });
 
     return (
-                <mesh ref={ref} position={[0, posY, 0]} scale={[scale, scale, scale]} rotation={[0, Math.PI / -4, Math.PI / -48]}>
+                <mesh onPointerEnter={Enter} onPointerDown={Down} onPointerOut={Leave} onPointerUp={Up} ref={ref} position={[0, posY, 0]} scale={[scale, scale, scale]} rotation={[0, Math.PI / -4, Math.PI / -48]}>
                     <ambientLight intensity={2} color={0xd384e0}>
                     <primitive object={pc.scene}/>
                     </ambientLight>
@@ -30,8 +46,10 @@ function Desktop() {
 }
 
 function DesktopCanvas() {
+    const divRef = useRef<any>();
+
     return (
-        <div id='main' style={{zIndex:'1', width: '100vw', height: '100vh', position: 'relative', left: '-10vw'}}>
+        <div id='main' ref={divRef}  style={{zIndex:'1', width: '100vw', height: '100vh', position: 'relative', left: '-10vw'}}>
             <Canvas
             frameloop='demand'
                 shadows
@@ -39,7 +57,7 @@ function DesktopCanvas() {
                 gl={{preserveDrawingBuffer: true}}>
 
                 <Suspense>
-                    <Desktop />
+                    <Desktop reference={divRef} />
                 </Suspense>
                 <OrbitControls enablePan={false} enableZoom={false} maxPolarAngle={Math.PI / 2} minPolarAngle={Math.PI / 2} />
             </Canvas>
