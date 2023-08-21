@@ -5,10 +5,9 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "npm run build && npm run testStart",
+    "test": "npm run build && npm run start",
     "build": "npm install && cd src && tsc && cd app && npm install && tsc && vite build",
-    "testStart": "node dist/index.js",
-    "start": "node index.js",
+    "start": "node dist/index.js",
     "dev": "cd src/app && npm run dev"
   },
   "repository": {
