@@ -1,6 +1,6 @@
 import { OrbitControls } from "@react-three/drei";
 import { Canvas, useLoader} from "@react-three/fiber";
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 
 function Planet({reference}: {reference: any})

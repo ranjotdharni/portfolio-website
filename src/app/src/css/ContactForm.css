@@ -3,6 +3,14 @@
     color: purple;
 }
 
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    transition: background-color 5000s ease-in-out 0s, top 1s ease, left 1s ease;
+    -webkit-text-fill-color: purple !important;
+}
+
 .input3d
 {
     color: purple;
@@ -24,10 +32,10 @@
     left: 38.5%;
 }
 
-#nameInput:hover
+.nameHover
 {
-    top: 24.25%;
-    left: 38%;
+    top: 24.25% !important;
+    left: 38% !important;
 }
 
 #lastInput
@@ -38,10 +46,10 @@
     left: 58.75%;
 }
 
-#lastInput:hover
+.lastHover
 {
-    top: 25%;
-    left: 57.5%;
+    top: 25% !important;
+    left: 57.5% !important;
 }
 
 #emailInput
@@ -54,10 +62,10 @@
     rotate: z 0.25deg;
 }
 
-#emailInput:hover
+.emailHover
 {
-    top: 37.25%;
-    left: 37.5%;
+    top: 37.25% !important;
+    left: 37.5% !important;
 }
 
 #messageInput
@@ -73,9 +81,27 @@
     resize: none;
 }
 
-#messageInput:hover
+.messageHover
 {
-    top: 51%;
-    left: 30%;
+    top: 51% !important;
+    left: 30% !important;
 }
 
+#formSubmit
+{
+    rotate: z -1deg;
+    position: absolute;
+    width: 9.75vw;
+    height: 5vh;
+    background: none;
+    top: 73vh;
+    left: 41.5vw;
+    border: none;
+}
+
+.formHover
+{
+    cursor: pointer;
+    top: 72.25vh !important;
+    left: 41vw !important;
+}

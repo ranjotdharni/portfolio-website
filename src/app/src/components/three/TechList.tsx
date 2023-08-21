@@ -4,7 +4,6 @@ import '../../css/TechList.css';
 import { useEffect, useRef } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls } from '@react-three/drei';
-//import { useRef } from 'react';
 
 function TechList() {
     const ref = useRef<any>();
