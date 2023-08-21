@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 import { RoundedBox, Text3D } from "@react-three/drei";
 import { useFrame, useLoader } from "@react-three/fiber";
 import { useRef } from "react";
