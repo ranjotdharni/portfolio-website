@@ -1,17 +1,7 @@
-import { useEffect } from 'react';
+import { Suspense, useEffect } from 'react';
 import '../../css/Greeting.css';
 
 function Greeting() {
-    useEffect(() => {
-        const objs = document.getElementsByClassName('main_text') as HTMLCollectionOf<HTMLElement>;
-
-        for (var i = 0; i < objs.length; i++)
-        {
-            objs[i].style.animationPlayState = 'running'; 
-        }
-
-    }, []);
-
     return (
         <div id="main_text">
             <div id="main_div1"><p id="main1" className='main_text'>Hi, my name is</p></div>

@@ -46,9 +46,7 @@ function WavesCanvas() {
                 camera={{position: [0, 0, 5], fov: 75}}
                 gl={{preserveDrawingBuffer: true}}>
 
-                <Suspense>
                     <Waves />
-                </Suspense>
             </Canvas>
         </div>
     )

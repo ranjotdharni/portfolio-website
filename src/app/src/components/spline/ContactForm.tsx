@@ -101,10 +101,12 @@ export default function App() {
 
         if (subject == 'first')
         {
+            lastRef.current.classList.remove('lastHover');
             nameRef.current.classList.add('nameHover');
         }
         else if (subject == 'last')
         {
+            nameRef.current.classList.remove('nameHover');
             lastRef.current.classList.add('lastHover');
         }
         else if (subject == 'email')

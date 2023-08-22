@@ -56,9 +56,7 @@ function DesktopCanvas() {
                 camera={{position: [0, 0, 2], fov: 75}}
                 gl={{preserveDrawingBuffer: true}}>
 
-                <Suspense>
                     <Desktop reference={divRef} />
-                </Suspense>
                 <OrbitControls enablePan={false} enableZoom={false} maxPolarAngle={Math.PI / 2} minPolarAngle={Math.PI / 2} />
             </Canvas>
         </div>

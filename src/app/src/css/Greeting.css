@@ -76,14 +76,14 @@
     color: var(--color);
     padding: 0;
     margin: 0;
-    opacity: 0;
-    animation: fade_in 50ms linear forwards paused;
+    opacity: 1;
+    /*animation: fade_in 50ms linear forwards;*/
 }
 
 #main1
 {
     font-size: 1vw;
-    animation-delay: 1.125s;
+    animation-delay: 3.125s;
 }
 
 #main2
@@ -91,31 +91,31 @@
     font-size: 2vw;
     font-family: 'REM', sans-serif;
     text-decoration: underline;
-    animation-delay: 1.75s;
+    animation-delay: 3.75s;
 }
 
 #main3
 {
     font-size: 1.25vw;
-    animation-delay: 3s;
+    animation-delay: 5s;
 }
 
 #main4
 {
     font-size: 1.25vw;
-    animation-delay: 3.5s;
+    animation-delay: 5.5s;
 }
 
 #main5
 {
     font-size: 1.25vw;
-    animation-delay: 4.25s;
+    animation-delay: 6.25s;
 }
 
 
 
 
-@keyframes scroll_wheel
+/*@keyframes scroll_wheel
 {
     0% {top: 5%}
     100% {top: 75%}
@@ -123,6 +123,10 @@
 
 @keyframes fade_in
 {
+    0% {opacity: 0;}
+    25% {opacity: 0.25;}
+    50% {opacity: 0.5;}
+    75% {opacity: 0.75;}
     100% {opacity: 1;}
 }
 
@@ -138,7 +142,7 @@
     100% {opacity: 1; left: 65%;}
 }
 
-/*The following was obviously not hand-typed, I wrote an algorithm to generate it.*/
+/*The following was obviously not hand-typed, I wrote an algorithm to generate it.
 
 @keyframes reveal
 {
@@ -243,4 +247,4 @@
     98% {background: linear-gradient(to right, rgba(0, 0, 0, 0) 0% 96%, var(--color) 97%);}
     99% {background: linear-gradient(to right, rgba(0, 0, 0, 0) 0% 98%, var(--color) 99%);}
     100% {background: rgba(0, 0, 0, 0);}
-}
+}*/
