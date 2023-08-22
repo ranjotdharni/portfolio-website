@@ -46,9 +46,11 @@ function Content() {
         <div id="overviewPrimary" style={{width: '80vw', height: '60vh', position: 'absolute', top: '95vh', left: '10vw'}}>
             <p id="overviewTitle">Overview</p>
 
-            <RoleDiv x={2} y={5} src='/png/uiIcon.png' desc='UI/UX Design' />
-            <RoleDiv x={20} y={5} src='/png/frontendIcon.png' desc='Frontend Development' />
-            <RoleDiv x={38} y={5} src='/png/backendIcon.png' desc='Backend Development' />
+            <RoleDiv x={24} y={5} src='/png/uiIcon.png' desc='UI/UX Design' />
+            <RoleDiv x={42} y={5} src='/png/frontendIcon.png' desc='Frontend Development' />
+            <RoleDiv x={60} y={5} src='/png/backendIcon.png' desc='Backend Development' />
+
+            <p id='descTitle'>About Me</p>
 
             <p id='overviewDesc'>
                 I'm a skilled developer with experience primarily in Object-Oriented Languages like Java, and various
@@ -58,9 +60,12 @@ function Content() {
                 your users will love!   
             </p>
 
+            <div id='pfpWrapper'><img src='/png/pfp.jpg' /></div>
+            <p id='pfpTitle'>Ranjot Dharni</p>
+
             <InfoDiv splitMargin={2} margin={6} title='Experience' desc='2+ Years' x={65} y={58}></InfoDiv>
-            <InfoDiv splitMargin={6} margin={11} title='Location' desc='Yuba City, CA' x={65} y={69}></InfoDiv>
-            <InfoDiv splitMargin={3} margin={8} title='Education' desc='B.S. Computer Science - May 2024' x={65} y={80}></InfoDiv>
+            <InfoDiv splitMargin={6.25} margin={11} title='Location' desc='Yuba City, CA' x={65} y={69}></InfoDiv>
+            <InfoDiv splitMargin={3.7} margin={8} title='Education' desc='B.S. Computer Science - May 2024' x={65} y={80}></InfoDiv>
 
         </div>
     )
