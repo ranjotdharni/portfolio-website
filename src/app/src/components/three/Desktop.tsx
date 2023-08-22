@@ -1,5 +1,5 @@
 import { Canvas, useLoader, useFrame, invalidate } from '@react-three/fiber';
-import { Suspense, useRef } from 'react';
+import { useRef } from 'react';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 import { OrbitControls } from '@react-three/drei';
 import { Clock } from 'three';

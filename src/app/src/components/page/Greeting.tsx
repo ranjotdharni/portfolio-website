@@ -1,4 +1,3 @@
-import { Suspense, useEffect } from 'react';
 import '../../css/Greeting.css';
 
 function Greeting() {
