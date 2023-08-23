@@ -39,7 +39,7 @@ function Waves() {
 function WavesCanvas() {
 
     return (
-        <div style={{zIndex:'1', width: '100vw', height: '110vh', position: 'absolute'}}>
+        <div style={{zIndex:'1', width: '2000px', height: '110vh', position: 'absolute', left: '0'}}>
             <Canvas
                 frameloop='demand'
                 shadows
