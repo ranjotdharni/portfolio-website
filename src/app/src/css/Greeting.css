@@ -1,9 +1,9 @@
 #main_text
 {
-    width: 100vw;
-    height: max(33vh, 300px);
+    width: 100%;
+    height: max(33%, 300px);
     position: absolute;
-    top: min(14vw, 18em);
+    top: min(28%, 18em);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -20,7 +20,7 @@
     width: max(25%, 470px);
     height: 10%;
     position: relative;
-    left: 20vw;
+    left: 20%;
     border-radius: 2vw;
     background: rgba(0, 0, 0, 0);
     /*animation-name: reveal;*/

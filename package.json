@@ -8,7 +8,8 @@
     "test": "npm run build && npm run start",
     "build": "npm install && cd src && tsc && cd app && npm install && tsc && vite build",
     "start": "node dist/index.js",
-    "dev": "cd src/app && npm run dev"
+    "dev": "cd src/app && npm run dev",
+    "mobileDev": "nodemon --watch src/app/dist dist/index.js"
   },
   "repository": {
     "type": "git",
@@ -30,6 +31,7 @@
   "devDependencies": {
     "@types/express": "^4.17.17",
     "@types/node": "^20.4.4",
-    "@types/three": "^0.129.0"
+    "@types/three": "^0.129.0",
+    "nodemon": "^3.0.1"
   }
 }

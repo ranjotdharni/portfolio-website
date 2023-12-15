@@ -9,7 +9,7 @@ import { Suspense } from 'react';
 function App() {
   return (
     <Suspense>
-      <ScrollBar></ScrollBar>
+      {(window.innerWidth > 1024 ? <ScrollBar></ScrollBar> : <></>)}
 
       <Intro></Intro>
       <Overview></Overview>

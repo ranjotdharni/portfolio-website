@@ -103,3 +103,11 @@
     opacity: 1 !important;
     transform: translateX(0) !important;
 }
+
+@media only screen and (max-width: 768px)
+{
+    #fadePrimary
+    {
+        top: 255vh;
+    }
+}
