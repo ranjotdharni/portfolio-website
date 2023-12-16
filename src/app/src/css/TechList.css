@@ -54,7 +54,7 @@
     width: 30%;
     height: 15%;
     position: absolute;
-    top: 8%;
+    top: 7.5%;
     left: 40%;
     display: grid;
     place-items: center;
@@ -102,6 +102,46 @@
 {
     opacity: 1 !important;
     transform: translateX(0) !important;
+}
+
+#tabletContainer {
+    background-color: rgb(27, 14, 30);
+    border-radius: 1vw;
+    display: grid;
+    place-items: center;
+    grid-template-columns: auto auto auto auto;
+    box-shadow: 0px 0px 10px 1px #8e07f559, 0px 0px 35px 3px #8e07f559, 0px 0px 45px 5px #8e07f559, 0px 0px 35px 3px #8e07f559 inset;
+    padding: 1%;
+}
+
+#tabletContainer div {
+    width: 90%;
+    height: 55%;
+    border-radius: 0.5em;
+    display: flex;
+    align-items: center;
+}
+
+#tabletContainer div:hover {
+    cursor: pointer;
+}
+
+#tabletContainer div img {
+    position: relative;
+    width: 25%;
+    aspect-ratio: 1 / 1;
+    left: 7.5%;
+}
+
+#tabletContainer div div {
+    width: 75%;
+    display: flex;
+    justify-content: center;
+}
+
+#tabletContainer div div p {
+    font-weight: bold;
+    font-size: large;
 }
 
 @media only screen and (max-width: 768px)

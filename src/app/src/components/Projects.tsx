@@ -37,15 +37,35 @@ const primitives = [
         ]
     },
     {
-        base: '#c9c5db',
-        color: '#3412e0',
-        link: '',
-        date: 'Django',
-        icon: '/png/progress.png',
-        icon_bg: '#1B0E1E',
-        project_name: 'Coming Soon...',
-        desc: 'Python React App',
+        base: '#d0fce1',
+        color: '#2faf74',
+        link: 'https://chemistreams.onrender.com/',
+        date: 'Node.js',
+        icon: '/png/nodejs.png',
+        icon_bg: '#303030',
+        project_name: 'ChemiStreams',
+        desc: 'Full-stack Messenger App',
         points: [
+            'Employed Node.js to design and implement RESTful APIs, enabling seamless communication between the front-end and the server.',
+            "Organized and implemented database schema using a relational database management system (MySQL) to store and manage the web app's data.",
+            'Developed and deployed front-end templates for landing page, login page, and dashboard to cloud platform (Render) for public access.',
+            'Integrated third-party services using Spotify Web API to enhance user functionality after reading through corresponding technical documentation.'
+        ]
+    },
+    {
+        base: '#d0fce1',
+        color: '#2faf74',
+        link: 'https://chemistreams.onrender.com/',
+        date: 'Node.js',
+        icon: '/png/nodejs.png',
+        icon_bg: '#303030',
+        project_name: 'ChemiStreams',
+        desc: 'Full-stack Messenger App',
+        points: [
+            'Employed Node.js to design and implement RESTful APIs, enabling seamless communication between the front-end and the server.',
+            "Organized and implemented database schema using a relational database management system (MySQL) to store and manage the web app's data.",
+            'Developed and deployed front-end templates for landing page, login page, and dashboard to cloud platform (Render) for public access.',
+            'Integrated third-party services using Spotify Web API to enhance user functionality after reading through corresponding technical documentation.'
         ]
     }
 ]

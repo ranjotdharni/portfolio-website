@@ -37,7 +37,7 @@ function PlanetCanvas()
     var cScale = 2.0;
 
     return (
-        <div ref={ref} style={{zIndex:'2', width: (18 * cScale) + 'vw', height: (35 * cScale) + 'vh', position: 'absolute', left: '55vw', top: '445vh'}}>
+        <div ref={ref} style={{zIndex:'2', width: (18 * cScale) + 'vw', height: (35 * cScale) + 'vh', position: 'absolute', left: '55vw', top: '545vh'}}>
             <Canvas
             frameloop='demand'
                 shadows

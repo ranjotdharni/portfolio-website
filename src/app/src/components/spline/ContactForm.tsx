@@ -5,7 +5,7 @@ import '../../css/ContactForm.css';
 
 const submitId = 'de17cd1f-a903-4cf8-a81f-763352f677e2';
 const directMaxY = 1400;
-const maxY = 5.302;
+const maxY = 6.302;
 
 function getCurrentY() {
     return ((window.innerHeight + window.scrollY) / document.body.offsetHeight) / maxY;
@@ -53,7 +53,7 @@ export default function App() {
     const animate = (time: any) => {
         if (getCurrentY() > 0.9)
         {
-            divRef.current.style.top = 433 + (Math.sin(time / 600)) + 'vh';
+            divRef.current.style.top = 466 + (Math.sin(time / 600)) + 'vh';
         }
 
         requestRef.current = requestAnimationFrame(animate);
@@ -144,7 +144,7 @@ export default function App() {
 
   return (
     <>
-        <div id='contactMain' ref={divRef} style={{zIndex: '2', width: '70vw', height: '95vh', position: 'absolute', top: '433vh', left: '-10vw'}}>
+        <div id='contactMain' ref={divRef} style={{zIndex: '2', width: '70vw', height: '95vh', position: 'absolute', top: '533vh', left: '-10vw'}}>
             <form onSubmit={sendEmail} ref={formRef}>
                 <input id='nameInput' ref={nameRef} autoComplete='off' name='first' type='text' className='input3d' placeholder='First'></input>
                 <input id='lastInput' ref={lastRef} autoComplete='off' name='last' type='text' className='input3d' placeholder='Last'></input>
@@ -154,7 +154,7 @@ export default function App() {
             </form>
             <Spline onLoad={onLoad} onMouseUp={onMouseUp} onMouseHover={onMouseHover} scene="https://prod.spline.design/123eyZgTIWbqmgjO/scene.splinecode" />
         </div>
-        <p id='confirmMessage' ref={confirmRef} style={{color: 'aliceblue', transition: 'opacity 1s ease', opacity: '0', width: '10vw', height: '10vh', position: 'absolute', top: '515vh', left: '47vw', display: 'grid', placeItems: 'center'}}></p>
+        <p id='confirmMessage' ref={confirmRef} style={{color: 'aliceblue', transition: 'opacity 1s ease', opacity: '0', width: '10vw', height: '10vh', position: 'absolute', top: '615vh', left: '47vw', display: 'grid', placeItems: 'center'}}></p>
     </>
   );
 }

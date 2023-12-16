@@ -1,7 +1,7 @@
 import { useRef, useState } from 'react';
 import '../css/ScrollBar.css';
 
-const maxY = 5.302;
+const maxY = 5.75;
 
 function Bubble({scaleX, scaleY, text, onClick, offset, offsetX, expand} : {scaleX: number, scaleY: number, text: string, onClick: any, offset: number, offsetX: number, expand: boolean}) {
     return (
@@ -37,9 +37,9 @@ function ScrollBar() {
             <div ref={ref2} style={{zIndex: '3', width: '2vw', height: '20vh', position: 'absolute', top: '76.25vh'}}></div>
             <div ref={ref3} style={{zIndex: '3', width: '2vw', height: '20vh', position: 'absolute', top: '159.5vh'}}></div>
             <div ref={ref4} style={{zIndex: '3', width: '2vw', height: '20vh', position: 'absolute', top: '255.7vh'}}></div>
-            <div ref={ref5} style={{zIndex: '3', width: '2vw', height: '20vh', position: 'absolute', top: '430vh'}}></div>
+            <div ref={ref5} style={{zIndex: '3', width: '2vw', height: '20vh', position: 'absolute', top: '530vh'}}></div>
             <div className="scrollMain">
-                <span className="scrollBack" style={{height: `${(curr + 0.2) * 100}%`}} />
+                <span className="scrollBack" style={{height: `${Math.min((curr + 0.2) * 100, 119)}%`}} />
                 <Bubble expand={(curr >= 0 ? true : false)} onClick={() => {onClick(ref1)}} scaleX={(curr >= 0 ? (4 * 1.25) : 4)} scaleY={(curr >= 0 ? (3.25 * 1.25) : 3.25)} text='1' offset={10} offsetX={0} />
                 <Bubble expand={(curr >= 0.1 ? true : false)} onClick={() => {onClick(ref2)}} scaleX={(curr >= 0.1 ? (4 * 1.25) : 4)} scaleY={(curr >= 0.1 ? (3.25 * 1.25) : 3.25)} text='2' offset={33} offsetX={0} />
                 <Bubble expand={(curr >= 0.3 ? true : false)} onClick={() => {onClick(ref3)}} scaleX={(curr >= 0.3 ? (4 * 1.25) : 4)} scaleY={(curr >= 0.3 ? (3.25 * 1.25) : 3.25)} text='3' offset={56} offsetX={0} />
