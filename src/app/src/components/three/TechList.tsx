@@ -1,6 +1,6 @@
 import Character from '../spline/Character';
 import '../../css/TechList.css';
-import { useEffect, useRef, MouseEvent } from 'react';
+import { useEffect, useRef } from 'react';
 
 interface TechDataItem {
     name: string,
@@ -14,7 +14,7 @@ function TechList() {
     const ref = useRef<any>();
 
     function makeRedirectFunction(externalUrl: string) {
-        return (evt: MouseEvent<HTMLDivElement>) => {
+        return () => {
             window.open(externalUrl, '_blank')
         }
     }
