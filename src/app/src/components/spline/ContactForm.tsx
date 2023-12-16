@@ -53,7 +53,7 @@ export default function App() {
     const animate = (time: any) => {
         if (getCurrentY() > 0.9)
         {
-            divRef.current.style.top = 466 + (Math.sin(time / 600)) + 'vh';
+            divRef.current.style.top = 533 + (Math.sin(time / 600)) + 'vh';
         }
 
         requestRef.current = requestAnimationFrame(animate);
