@@ -43,12 +43,12 @@ function Content() {
     }, []);
 
     return (
-        <div id="overviewPrimary" style={{width: '80vw', height: '60vh', position: 'absolute', top: '95vh', left: '10vw'}}>
+        <div id="overviewPrimary" style={{width: '80vw', height: '60vh', position: 'absolute', top: '90vh', left: '10vw'}}>
             <p id="overviewTitle">Overview</p>
 
             <RoleDiv x={(window.innerWidth > 768 ? 24 : 2)} animation='spin' color='#1c2c4c' borderColor='white' y={5} src='/svg/react.svg' desc='React' />
             <RoleDiv x={(window.innerWidth > 768 ? 42 : 35)} animation='bounce' color='#3178C6' borderColor='white' y={5} src='/svg/typescript.svg' desc='TypeScript' />
-            <RoleDiv x={(window.innerWidth > 768 ? 60 : 68)} animation='shake' color='#2496ED' borderColor='white' y={5} src='/svg/docker.svg' desc='Docker' />
+            <RoleDiv x={(window.innerWidth > 768 ? 60 : 68)} animation='shake' color='#1D63ED' borderColor='white' y={5} src='/svg/docker.svg' desc='Docker' />
 
             <p id='descTitle'>About Me</p>
 
@@ -59,7 +59,7 @@ function Content() {
                 have another valuable asset ensuring the success of your business.  
             </p>
 
-            <div id='pfpWrapper'><img src='/png/pfp.png' /></div>
+            <div id='pfpWrapper'><a href='https://www.linkedin.com/in/ranjot-dharni-717580269/' target='_blank'><img src='/png/pfp.png' /></a></div>
             <p id='pfpTitle'>Ranjot Dharni</p>
 
             <InfoDiv splitMargin={15.5} margin={24} title='GPA' desc='3.79 (cumulative)' short='3.79' x={65} y={58}></InfoDiv>

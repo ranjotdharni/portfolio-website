@@ -124,7 +124,7 @@ const techData: Array<TechDataItem> = [
     {
         name: 'Docker',
         textColor: 'white',
-        backgroundColor: '#2496ED',
+        backgroundColor: '#1D63ED',
         url: '/svg/docker.svg',
         external: 'https://www.docker.com/',
     },
