@@ -141,10 +141,10 @@ export default function App() {
             divRef.current.style.cursor = 'default';
         }
     }
-
+//, position: 'absolute', top: '533vh', left: '-10vw'
   return (
     <>
-        <div id='contactMain' ref={divRef} style={{zIndex: '2', width: '70vw', height: '95vh', position: 'absolute', top: '533vh', left: '-10vw'}}>
+        <div id='contactMain' ref={divRef} style={{zIndex: '2', width: '70vw', height: '95vh', position: 'absolute', left: '-10vw'}}>
             <form onSubmit={sendEmail} ref={formRef}>
                 <input id='nameInput' ref={nameRef} autoComplete='off' name='first' type='text' className='input3d' placeholder='First'></input>
                 <input id='lastInput' ref={lastRef} autoComplete='off' name='last' type='text' className='input3d' placeholder='Last'></input>
@@ -154,7 +154,7 @@ export default function App() {
             </form>
             <Spline onLoad={onLoad} onMouseUp={onMouseUp} onMouseHover={onMouseHover} scene="https://prod.spline.design/123eyZgTIWbqmgjO/scene.splinecode" />
         </div>
-        <p id='confirmMessage' ref={confirmRef} style={{color: 'aliceblue', transition: 'opacity 1s ease', opacity: '0', width: '10vw', height: '10vh', position: 'absolute', top: '615vh', left: '47vw', display: 'grid', placeItems: 'center'}}></p>
+        <p id='confirmMessage' ref={confirmRef} style={{color: 'aliceblue', transition: 'opacity 1s ease', opacity: '0', width: '10vw', height: '10vh', left: '47vw', display: 'grid', placeItems: 'center'}}></p>
     </>
   );
 }

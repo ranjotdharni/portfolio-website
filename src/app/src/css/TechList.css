@@ -2,8 +2,9 @@
 {
     width: 90vw;
     height: 90vh;
-    position: absolute;
-    top: 165vh;
+    position: relative;
+    /*top: 165vh;*/
+    margin-top: 20px;
     left: 5vw;
     display: flex;
     flex-direction: column;
@@ -147,8 +148,5 @@
 
 @media only screen and (max-width: 768px)
 {
-    #fadePrimary
-    {
-        top: 255vh;
-    }
+    
 }

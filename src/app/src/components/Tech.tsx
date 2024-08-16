@@ -3,9 +3,7 @@ import TechList from './three/TechList';
 function Tech() {
 
     return (
-        <>
-            <TechList />
-        </>
+        <TechList />
     );
 }
 

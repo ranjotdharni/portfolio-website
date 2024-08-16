@@ -79,7 +79,10 @@ function ProjectTimeline()
 {
     return (
         <div id='timeline'>
-            <p id='timelineTitle'>Projects</p>
+            <div className='timelineHeaderWrapper'>
+                <div className="scrollBoxTwo" id='scrollTwo'><div></div></div>
+                <p id='timelineTitle'>Projects</p>
+            </div>
             <VerticalTimeline>
                 {primitives.map((proj, index) => {
                     return <Project key={index} props={proj}></Project>

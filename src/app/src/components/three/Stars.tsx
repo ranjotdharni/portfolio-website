@@ -76,12 +76,11 @@ const Stars = (props: {count: number}) => {
   
     useFrame((state) => {
       const { clock } = state;
-      var move = 15 * getCurrentY();
   
       points.current.material.uniforms.uTime.value = clock.elapsedTime;
 
-      points.current.position.y = -20 + (move + (1 * (Math.pow(Math.E, -500000 * (1 - getCurrentY() + 0.0005)))));
-    }); //-20 + (15 * getCurrentY() - (0.001 * (1 / Math.pow(1 - getCurrentY() + 0.0001, -25000))));
+      points.current.rotation.y = clock.elapsedTime / 25;
+    }); // (move + (1 * (Math.pow(Math.E, -500000 * (1 - getCurrentY() + 0.0005)))))
   
     return (
       <points ref={points}>
@@ -105,7 +104,7 @@ const Stars = (props: {count: number}) => {
 
 function StarsCanvas() {
     return (
-        <div style={{zIndex:'1', width: '100vw', height: '100vh', position: 'absolute', left: '0', top: '530vh'}}>
+        <div style={{zIndex:'1', width: '100vw', height: '100vh', position: 'absolute', left: '0'}}>
             <Canvas
             frameloop='demand'
                 shadows
