@@ -1,12 +1,6 @@
 import { Canvas, useFrame } from "@react-three/fiber";
 import { useMemo, useRef } from "react";
 
-const maxY = 6.302;
-
-function getCurrentY() {
-    return ((window.innerHeight + window.scrollY) / document.body.offsetHeight) / maxY;
-}
-
 function getRandom(min: number, max: number): number {
     const lower = Math.min(min, max);
     const upper = Math.max(min, max);
