@@ -1,7 +1,8 @@
 import { OrbitControls } from "@react-three/drei";
 import { Canvas, useLoader} from "@react-three/fiber";
-import { useRef } from "react";
+import { Suspense, useRef } from "react";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
+import Loader from "./Loader";
 
 function Planet({reference}: {reference: any})
 {
@@ -43,9 +44,10 @@ function PlanetCanvas()
                 shadows
                 gl={{preserveDrawingBuffer: true}}
                 >
-            
-                <OrbitControls autoRotate autoRotateSpeed={0.75} enablePan={false} enableZoom={false} />
-                <Planet reference={ref} />
+                <Suspense fallback={<Loader subject='3D Objects' />}>
+                    <OrbitControls autoRotate autoRotateSpeed={0.75} enablePan={false} enableZoom={false} />
+                    <Planet reference={ref} />
+                </Suspense>
             </Canvas>
         </div>
     ) 

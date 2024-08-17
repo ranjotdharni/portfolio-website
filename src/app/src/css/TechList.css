@@ -53,14 +53,14 @@
 
 #stack_text
 {
-    width: 30%;
+    width: 55%;
     height: 15%;
     position: absolute;
     top: 7.5%;
     left: 40%;
     display: grid;
     place-items: center;
-    font-size: 1vw;
+    font-size: 1.3vw;
     color: var(--purple-color);
 }
 

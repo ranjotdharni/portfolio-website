@@ -1,7 +1,9 @@
 .scrollMain
 {
-    width: 0.5%;
-    height: 25%;
+    /*width: 0.5%;
+    height: 25%;*/
+    width: 8px;
+    height: 200px;
     position: fixed;
     top: 10%;
     left: 97.5%;

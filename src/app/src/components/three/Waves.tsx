@@ -1,6 +1,7 @@
-import { useRef } from 'react';
+import { Suspense, useRef } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { Clock } from 'three';
+import Loader from './Loader';
 
 const wavesUniforms = {
     time: {
@@ -45,8 +46,9 @@ function WavesCanvas() {
                 shadows
                 camera={{position: [0, 0, 5], fov: 75}}
                 gl={{preserveDrawingBuffer: true}}>
-
-                    <Waves />
+                    <Suspense fallback={<Loader subject='Animated Models' />}>
+                        <Waves />
+                    </Suspense>
             </Canvas>
         </div>
     )

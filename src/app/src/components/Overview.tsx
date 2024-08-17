@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import '../css/Overview.css'
 
-function RoleDiv({src, desc, color, borderColor, animation} : {src: string, desc: string, color: string, borderColor: string, animation: string}) {
+function RoleDiv({src, color, borderColor, animation} : {src: string, color: string, borderColor: string, animation: string}) {
     return (
         <div className={'roleDiv' + (animation !== '' ? ` ${animation}` : animation)} style={{border: `solid 1px ${borderColor}`, backgroundColor: color}}>
             <img src={src} />
@@ -44,9 +44,9 @@ function Content() {
             <div id="overviewPrimary" style={{width: '80%', height: '60%', position: 'relative', top: '20%', left: '10%'}}>
                         <div className='overviewContentContainer'>
                             <div className='rolesWrapper'>
-                                <RoleDiv animation='spin' color='#1c2c4c' borderColor='white' src='/svg/react.svg' desc='React' />
-                                <RoleDiv animation='bounce' color='#3178C6' borderColor='white' src='/svg/typescript.svg' desc='TypeScript' />
-                                <RoleDiv animation='shake' color='#1D63ED' borderColor='white' src='/svg/docker.svg' desc='Docker' />
+                                <RoleDiv animation='spin' color='#1c2c4c' borderColor='white' src='/svg/react.svg' />
+                                <RoleDiv animation='bounce' color='#3178C6' borderColor='white' src='/svg/typescript.svg' />
+                                <RoleDiv animation='shake' color='#1D63ED' borderColor='white' src='/svg/docker.svg' />
                             </div>
                             
                             <div className='pfpContainer'>
@@ -65,9 +65,9 @@ function Content() {
 
                                 <p id='overviewDesc'>
                                     I'm a skilled developer and a team player that strives to be a leader. As a dedicated programmer, I have
-                                    experience in web development and deployment tools like TypeScript or Docker, and frameworks like React and Node.
+                                    experience in various development and deployment tools like TypeScript or Docker, and frameworks like React and Django.
                                     Whether you require focus on specific development needs or want your own dynamic web app, with me on your team, you'll
-                                    have another valuable asset ensuring the success of your business.  
+                                    have another valuable asset ensuring the success of your projects.  
                                 </p>
                             </div>
 

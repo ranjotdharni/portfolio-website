@@ -1,5 +1,6 @@
 import { Canvas, useFrame } from "@react-three/fiber";
-import { useMemo, useRef } from "react";
+import { Suspense, useMemo, useRef } from "react";
+import Loader from "./Loader";
 
 function getRandom(min: number, max: number): number {
     const lower = Math.min(min, max);
@@ -105,8 +106,9 @@ function StarsCanvas() {
                 camera={{position: [0, 0, 1], fov: 82}}
                 gl={{preserveDrawingBuffer: true}}
                 >
-
-                <Stars count={4000} />
+                <Suspense fallback={<Loader subject='Stars' />}>
+                  <Stars count={4000} />
+                </Suspense>
             </Canvas>
         </div>
     );

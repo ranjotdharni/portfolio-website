@@ -67,6 +67,22 @@ const primitives = [
             "Engineered complex Salesforce integration for City of Sacramento's 311 services, adapting to evolving data structures.",
             'Directed key feature implementation like resource loading, Google Maps interactivity, and Salesforce integration, ensuring smooth collaboration with backend teams.'
         ]
+    },
+    {
+        base: '#ceb1f2',
+        color: '#6702e3',
+        link: 'https://pitcrew.onrender.com',
+        date: 'Python Django',
+        icon: '/png/django.png',
+        icon_bg: '#ffffff',
+        project_name: 'Voxyl',
+        desc: 'Project Management Application',
+        points: [
+            'Designed a responsive front-end using React with TypeScript including 12 interchangeable color themes with 2 lighting modes.',
+            "Implemented a robust back-end architecture using built-in features of the Django development framework in Python.",
+            "Employed PostgreSQL to save user data in a relational format for structured data storage enabling efficient querying.",
+            'Developed functionalities which allow users to formulate teams, assign permissions to team members, and collaborate on projects.'
+        ]
     }
 ]
 

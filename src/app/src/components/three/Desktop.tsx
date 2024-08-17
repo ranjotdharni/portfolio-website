@@ -1,8 +1,9 @@
 import { Canvas, useLoader, useFrame, invalidate } from '@react-three/fiber';
-import { useRef } from 'react';
+import { Suspense, useRef } from 'react';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 import { OrbitControls } from '@react-three/drei';
 import { Clock } from 'three';
+import Loader from './Loader';
 
 function Desktop({reference} : {reference: any}) {
     const timer = new Clock();
@@ -56,8 +57,10 @@ function DesktopCanvas() {
                 camera={{position: [0, 0, 2], fov: 75}}
                 gl={{preserveDrawingBuffer: true}}>
 
+                <Suspense fallback={<Loader subject='3D Models' />}>
                     <Desktop reference={divRef} />
-                <OrbitControls enablePan={false} enableZoom={false} maxPolarAngle={Math.PI / 2} minPolarAngle={Math.PI / 2} />
+                    <OrbitControls enablePan={false} enableZoom={false} maxPolarAngle={Math.PI / 2} minPolarAngle={Math.PI / 2} />
+                </Suspense>
             </Canvas>
         </div>
     )

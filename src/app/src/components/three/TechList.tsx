@@ -43,8 +43,8 @@ function TechList() {
             <p id='stack_text'>
                 Below are some of the technologies that I've used in the various projects listed
                 on my resume and mentioned here. I regularly apply these modern tools to develop 
-                robust and efficient web applications. Currently, I am working with City of Sacramento to help migrate their
-                311 Customer Service mobile application to a cross-platform framework. 
+                robust and efficient web applications. Currently, I'm working on a project management application 
+                that uses the Python Django back-end framework in combination with a React front-end. 
             </p>
 
             <div id='tabletContainer' ref={ref} style={{width: '53%', height: '50%', position: 'absolute', top: '37%', left: '3%', zIndex: '1'}}>
@@ -143,11 +143,11 @@ const techData: Array<TechDataItem> = [
         external: 'https://expressjs.com/',
     },
     {
-        name: 'SocketIO',
-        textColor: '#010101',
+        name: 'Django',
+        textColor: '#092E20',
         backgroundColor: '#ffffff',
-        url: '/svg/socket.svg',
-        external: 'https://socket.io/',
+        url: '/svg/django.svg',
+        external: 'https://djangoproject.com/',
     },
 ]
 

@@ -2,9 +2,9 @@ import { useRef, useState } from 'react';
 import '../css/ScrollBar.css';
 
 const expand1 = 0
-const expand2 = 15.5
-const expand3 = 30
-const expand4 = 40
+const expand2 = 12.5
+const expand3 = 25
+const expand4 = 41
 const expand5 = 90
 
 function Bubble({scaleX, scaleY, text, onClick, offset, offsetX, expand} : {scaleX: number, scaleY: number, text: string, onClick: any, offset: number, offsetX: number, expand: boolean}) {
@@ -47,9 +47,9 @@ function ScrollBar() {
             <div ref={ref2} style={{zIndex: '3', width: '2vw', height: '20vh', position: 'absolute', top: '100vh'}}></div>
             <div ref={ref3} style={{zIndex: '3', width: '2vw', height: '20vh', position: 'absolute', top: '200vh'}}></div>
             <div ref={ref4} style={{zIndex: '3', width: '2vw', height: '20vh', position: 'absolute', top: '300vh'}}></div>
-            <div ref={ref5} style={{zIndex: '3', width: '2vw', height: '20vh', position: 'absolute', top: '650vh'}}></div>
+            <div ref={ref5} style={{zIndex: '3', width: '2vw', height: '20vh', position: 'absolute', top: (window.innerWidth > 1600 ? '565vh' : '700vh')}}></div>
             <div className="scrollMain">
-                <span className="scrollBack" style={{height: `${(curr > 97.5 ? curr + 20 : (curr + (curr > expand3 ? (curr > expand4 + 22.5 ? 10 : 30) : 20)))}%`}} />
+                <span className="scrollBack" style={{height: `${(curr > 97.5 ? curr + 20 : (curr + (curr > expand3 ? (curr > expand4 + 22.5 ? 10 : 30) : 22)))}%`}} />
                 <Bubble expand={(curr >= expand1 ? true : false)} onClick={() => {onClick(ref1)}} scaleX={(curr >= expand1 ? (4 * 1.25) : 4)} scaleY={(curr >= expand1 ? (3.25 * 1.25) : 3.25)} text='1' offset={10} offsetX={0} />
                 <Bubble expand={(curr >= expand2 ? true : false)} onClick={() => {onClick(ref2)}} scaleX={(curr >= expand2 ? (4 * 1.25) : 4)} scaleY={(curr >= expand2 ? (3.25 * 1.25) : 3.25)} text='2' offset={33} offsetX={0} />
                 <Bubble expand={(curr >= expand3 ? true : false)} onClick={() => {onClick(ref3)}} scaleX={(curr >= expand3 ? (4 * 1.25) : 4)} scaleY={(curr >= expand3 ? (3.25 * 1.25) : 3.25)} text='3' offset={56} offsetX={0} />
