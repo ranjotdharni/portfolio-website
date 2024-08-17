@@ -5,9 +5,6 @@ function RoleDiv({src, desc, color, borderColor, animation} : {src: string, desc
     return (
         <div className={'roleDiv' + (animation !== '' ? ` ${animation}` : animation)} style={{border: `solid 1px ${borderColor}`, backgroundColor: color}}>
             <img src={src} />
-            <div className='descContainer'>
-                <p>{desc}</p>
-            </div>
         </div>
     )
 }
@@ -46,31 +43,39 @@ function Content() {
         <div style={{width: '100vw', height: '100vh'}}>
             <div id="overviewPrimary" style={{width: '80%', height: '60%', position: 'relative', top: '20%', left: '10%'}}>
                         <div className='overviewContentContainer'>
-                            <div id='pfpWrapper'><a href='https://www.linkedin.com/in/ranjot-dharni-717580269/' target='_blank'><img src='/png/pfp.png' /></a></div>
-                            <p id='pfpTitle'>Ranjot Dharni</p>
+                            <div className='rolesWrapper'>
+                                <RoleDiv animation='spin' color='#1c2c4c' borderColor='white' src='/svg/react.svg' desc='React' />
+                                <RoleDiv animation='bounce' color='#3178C6' borderColor='white' src='/svg/typescript.svg' desc='TypeScript' />
+                                <RoleDiv animation='shake' color='#1D63ED' borderColor='white' src='/svg/docker.svg' desc='Docker' />
+                            </div>
+                            
+                            <div className='pfpContainer'>
+                                <div id='pfpWrapper'><a href='https://www.linkedin.com/in/ranjot-dharni-717580269/' target='_blank'><img src='/png/pfp.png' /></a></div>
+                                <p id='pfpTitle'>Ranjot Dharni</p>
+                            </div>
 
-                            <RoleDiv animation='spin' color='#1c2c4c' borderColor='white' src='/svg/react.svg' desc='React' />
-                            <RoleDiv animation='bounce' color='#3178C6' borderColor='white' src='/svg/typescript.svg' desc='TypeScript' />
-                            <RoleDiv animation='shake' color='#1D63ED' borderColor='white' src='/svg/docker.svg' desc='Docker' />
-                        
-                            <p id="overviewTitle">Overview</p>
+                            <div className='titleWrapper'>
+                                <p id="overviewTitle">Overview</p>
+                            </div>
                         </div>
 
                         <div className='overviewContentContainer'>
-                            <p id='descTitle'>About Me</p>
+                            <div className='overviewWrapper'>
+                                <p id='descTitle'>About Me</p>
 
-                            <p id='overviewDesc'>
-                                I'm a skilled developer and a team player that strives to be a leader. As a dedicated programmer, I have
-                                experience in web development and deployment tools like TypeScript or Docker, and frameworks like React and Node.
-                                Whether you require focus on specific development needs or want your own dynamic web app, with me on your team, you'll
-                                have another valuable asset ensuring the success of your business.  
-                            </p>
+                                <p id='overviewDesc'>
+                                    I'm a skilled developer and a team player that strives to be a leader. As a dedicated programmer, I have
+                                    experience in web development and deployment tools like TypeScript or Docker, and frameworks like React and Node.
+                                    Whether you require focus on specific development needs or want your own dynamic web app, with me on your team, you'll
+                                    have another valuable asset ensuring the success of your business.  
+                                </p>
+                            </div>
 
-
-
-                            <InfoDiv splitMargin={15.5} margin={24} title='GPA' desc='3.79 (cumulative)' short='3.79'></InfoDiv>
-                            <InfoDiv splitMargin={6.25} margin={11} title='Location' desc='Sacramento, CA' short='Sacramento, CA'></InfoDiv>
-                            <InfoDiv splitMargin={3.7} margin={8} title='Education' desc='B.S. Computer Science - May 2024' short='B.S. Computer Science'></InfoDiv>
+                            <div className='infoWrapper'>
+                                <InfoDiv splitMargin={2} margin={8} title='GPA' desc='3.82 ( / 4.00)' short='3.82'></InfoDiv>
+                                <InfoDiv splitMargin={2} margin={8} title='Location' desc='Sacramento, CA' short='Sacramento, CA'></InfoDiv>
+                                <InfoDiv splitMargin={2} margin={8} title='Education' desc='B.S. Computer Science' short='B.S. Computer Science'></InfoDiv>
+                            </div>
                         </div>
             </div>
         </div>
